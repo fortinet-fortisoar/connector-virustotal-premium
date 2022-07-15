@@ -2,7 +2,7 @@
   "name": "virustotal-premium",
   "label": "VirusTotal Premium",
   "version": "1.0.0",
-  "description": "VirusTotal Premium is used to analyze retro hunts, search intelligence, livehunt notifications, livehunt rulesets, and download files from VirusTotal",
+  "description": "VirusTotal Premium Services are used to get more threat context and exposes advanced threat hunting and malware discovery endpoints and functionality. This connector facilitates the automated operations related to analyze retro hunts, search intelligence, livehunt notifications, livehunt rulesets, and download files from VirusTotal.",
   "publisher": "Fortinet",
   "cs_approved": true,
   "cs_compatible": true,
@@ -82,7 +82,7 @@
           "visible": true,
           "type": "text",
           "name": "hashes",
-          "placeholder": "e3b0c44298fc1c149afbf4c8996fb92,ae41e4649b934ca495991b7852b855"
+          "placeholder": "e.g. e3b0c44298fc1c149afbf4c8996fb92,ae41e4649b934ca495991b7852b855"
         },
         {
           "title": "Password",
@@ -215,7 +215,7 @@
           "type": "text",
           "name": "query",
           "tooltip": "Specify a query for which you want to search a files in VirusTotal. For ex. content: \"hello world\"",
-          "placeholder": "For ex. content: \"hello world\""
+          "placeholder": "e.g. content: \"hello world\""
         },
         {
           "title": "Order By",
@@ -307,7 +307,7 @@
           "visible": true,
           "type": "text",
           "name": "rules",
-          "placeholder": "rule foobar { strings: $ = \"foobar\" condition: all of them }"
+          "placeholder": "e.g. rule foobar { strings: $ = \"foobar\" condition: all of them }"
         },
         {
           "title": "Enabled",
@@ -338,7 +338,7 @@
           "visible": true,
           "type": "text",
           "name": "notification_emails",
-          "placeholder": "demo@fortinet.com, sample@fortinet.com"
+          "placeholder": "e.g. demo@fortinet.com, sample@fortinet.com"
         }
       ],
       "output_schema": {}
@@ -360,7 +360,7 @@
           "type": "text",
           "name": "filter",
           "tooltip": "Specify a filter for which you want to filter the rulesets according to the values of certain attributes in VirusTotal. For ex. filter=enabled:true",
-          "placeholder": "For ex. filter=enabled:true"
+          "placeholder": "e.g. filter=enabled:true"
         },
         {
           "title": "Order By",
@@ -371,7 +371,7 @@
           "name": "order",
           "description": "(Optional) Order in which you want to sort the results retrieved from VirusTotal. Note: If your Query parameter contains content search the order parameter will make no effect.",
           "tooltip": "(Optional) Order in which you want to sort the results retrieved from VirusTotal. Note: If your Query parameter contains content search the order parameter will make no effect.",
-          "placeholder": "For ex. creation_date+"
+          "placeholder": "e.g. creation_date+"
         },
         {
           "title": "Limit",
@@ -478,7 +478,7 @@
           "visible": true,
           "type": "text",
           "name": "rules",
-          "placeholder": "rule foobar { strings: $ = \"foobar\" condition: all of them }"
+          "placeholder": "e.g. rule foobar { strings: $ = \"foobar\" condition: all of them }"
         },
         {
           "title": "Enabled",
@@ -509,7 +509,7 @@
           "visible": true,
           "type": "text",
           "name": "notification_emails",
-          "placeholder": "demo@fortinet.com, sample@fortinet.com"
+          "placeholder": "e.g. demo@fortinet.com, sample@fortinet.com"
         }
       ],
       "output_schema": {}
@@ -552,7 +552,7 @@
           "type": "text",
           "name": "filter",
           "tooltip": "(Optional)Specify a filter for which you want to filter the livehunt notifications according to the values of certain attributes in VirusTotal. For ex. filter=enabled:true",
-          "placeholder": "For ex. filter=tag:my_rule"
+          "placeholder": "e.g. filter=tag:my_rule"
         },
         {
           "title": "Order By",
@@ -563,7 +563,7 @@
           "name": "order",
           "description": "(Optional) Order in which you want to sort the results retrieved from VirusTotal.",
           "tooltip": "(Optional) Order in which you want to sort the results retrieved from VirusTotal.",
-          "placeholder": "For ex. date+"
+          "placeholder": "e.g. date+"
         },
         {
           "title": "Limit",
@@ -617,7 +617,7 @@
           "type": "text",
           "name": "filter",
           "tooltip": "(Optional)Specify a filter for which you want to filter the files objects for livehunt notifications according to the values of certain attributes in VirusTotal. For ex. filter=enabled:true",
-          "placeholder": "For ex. filter=tag:my_rule"
+          "placeholder": "e.g. filter=tag:my_rule"
         },
         {
           "title": "Limit",
@@ -732,7 +732,7 @@
           "visible": true,
           "type": "text",
           "name": "rules",
-          "placeholder": "rule demo { strings: $ = \"demo\" condition: all of them }"
+          "placeholder": "e.g. rule demo { strings: $ = \"demo\" condition: all of them }"
         },
         {
           "title": "Notification Emails",
@@ -817,7 +817,7 @@
           "type": "text",
           "name": "filter",
           "tooltip": "(Optional)Specify a filter for which you want to filter the retrohunt jobs according to the values of certain attributes in VirusTotal. For ex. filter=enabled:true",
-          "placeholder": "For ex. filter=tag:my_rule"
+          "placeholder": "e.g. filter=tag:my_rule"
         },
         {
           "title": "Limit",

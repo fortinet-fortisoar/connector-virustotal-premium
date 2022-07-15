@@ -4,8 +4,10 @@
   FORTINET CONFIDENTIAL & FORTINET PROPRIETARY SOURCE CODE
   Copyright end """
 
-import requests, datetime, time, json
+import requests, datetime, time, json, os
+from django.conf import settings
 from connectors.core.connector import ConnectorError, get_logger
+from connectors.cyops_utilities.builtins import upload_file_to_cyops
 
 logger = get_logger('virustotal-premium')
 
@@ -51,7 +53,7 @@ class VirusTotalPremium(object):
                 else:
                     return response
             elif response.status_code == 404:
-                return {"message": "Not Found"}
+                return response.json()
             else:
                 logger.error("{0}".format(errors.get(response.status_code, '')))
                 raise ConnectorError("{0}".format(errors.get(response.status_code, response.text)))
@@ -84,8 +86,17 @@ def download_file(config, params):
     vtp = VirusTotalPremium(config)
     endpoint = 'files/{0}/download'.format(params.get('id'))
     try:
+        file_name = params.get('id')
         response = vtp.make_rest_call(endpoint, 'GET')
-        return response
+        logger.debug("API response: {0}".format(response))
+        if response:
+            path = os.path.join(settings.TMP_FILE_ROOT, file_name)
+            logger.debug("Path: {0}".format(path))
+            with open(path, 'wb') as fp:
+                fp.write(response.content)
+            attach_response = upload_file_to_cyops(file_path=file_name, filename=file_name,
+                                                   name=file_name, create_attachment=True)
+            return attach_response
     except Exception as err:
         logger.exception("{0}".format(str(err)))
         raise ConnectorError("{0}".format(str(err)))
@@ -138,8 +149,17 @@ def download_zip_file(config, params):
     vtp = VirusTotalPremium(config)
     endpoint = 'intelligence/zip_files/{0}/download'.format(params.get('id'))
     try:
+        file_name = params.get('id')
         response = vtp.make_rest_call(endpoint, 'GET')
-        return response
+        logger.debug("API response: {0}".format(response))
+        if response:
+            path = os.path.join(settings.TMP_FILE_ROOT, file_name)
+            logger.debug("Path: {0}".format(path))
+            with open(path, 'wb') as fp:
+                fp.write(response.content)
+            attach_response = upload_file_to_cyops(file_path=file_name, filename=file_name,
+                                                   name=file_name, create_attachment=True)
+            return attach_response
     except Exception as err:
         logger.exception("{0}".format(str(err)))
         raise ConnectorError("{0}".format(str(err)))
