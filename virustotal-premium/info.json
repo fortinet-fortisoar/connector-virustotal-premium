@@ -360,7 +360,7 @@
           "type": "text",
           "name": "filter",
           "tooltip": "Specify a filter for which you want to filter the rulesets according to the values of certain attributes in VirusTotal. For ex. filter=enabled:true",
-          "placeholder": "e.g. filter=enabled:true"
+          "placeholder": "e.g. enabled:true"
         },
         {
           "title": "Order By",
@@ -552,7 +552,7 @@
           "type": "text",
           "name": "filter",
           "tooltip": "(Optional)Specify a filter for which you want to filter the livehunt notifications according to the values of certain attributes in VirusTotal. For ex. filter=enabled:true",
-          "placeholder": "e.g. filter=tag:my_rule"
+          "placeholder": "e.g. tag:my_rule"
         },
         {
           "title": "Order By",
@@ -617,7 +617,7 @@
           "type": "text",
           "name": "filter",
           "tooltip": "(Optional)Specify a filter for which you want to filter the files objects for livehunt notifications according to the values of certain attributes in VirusTotal. For ex. filter=enabled:true",
-          "placeholder": "e.g. filter=tag:my_rule"
+          "placeholder": "e.g. tag:my_rule"
         },
         {
           "title": "Limit",
@@ -817,7 +817,7 @@
           "type": "text",
           "name": "filter",
           "tooltip": "(Optional)Specify a filter for which you want to filter the retrohunt jobs according to the values of certain attributes in VirusTotal. For ex. filter=enabled:true",
-          "placeholder": "e.g. filter=tag:my_rule"
+          "placeholder": "e.g. tag:my_rule"
         },
         {
           "title": "Limit",
