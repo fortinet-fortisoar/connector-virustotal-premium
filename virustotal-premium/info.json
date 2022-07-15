@@ -1,0 +1,921 @@
+{
+  "name": "virustotal-premium",
+  "label": "VirusTotal Premium",
+  "version": "1.0.0",
+  "description": "VirusTotal Premium Services are used to get more threat context and exposes advanced threat hunting and malware discovery endpoints and functionality. This connector facilitates the automated operations related to analyze retro hunts, search intelligence, livehunt notifications, livehunt rulesets, and download files from VirusTotal.",
+  "publisher": "Fortinet",
+  "cs_approved": true,
+  "cs_compatible": true,
+  "category": "Threat Intelligence",
+  "icon_small_name": "small.png",
+  "icon_large_name": "large.png",
+  "help_online": "",
+  "configuration": {
+    "fields": [
+      {
+        "title": "Server",
+        "description": "Server URL of the VirusTotal Premium server to which you will connect and perform the automated operations.",
+        "required": true,
+        "editable": true,
+        "visible": true,
+        "type": "text",
+        "name": "server_url",
+        "value": "https://www.virustotal.com"
+      },
+      {
+        "title": "API Key",
+        "description": "API key that is configured for your account to access the VirusTotal premium server.",
+        "required": true,
+        "editable": true,
+        "visible": true,
+        "type": "password",
+        "name": "api_key"
+      },
+      {
+        "title": "Verify SSL",
+        "name": "verify_ssl",
+        "required": false,
+        "editable": true,
+        "visible": true,
+        "type": "checkbox",
+        "value": true,
+        "tooltip": "Specifies whether the SSL certificate for the server is to be verified or not. By default, this option is set as True.",
+        "description": "Specifies whether the SSL certificate for the server is to be verified or not. By default, this option is set as True."
+      }
+    ]
+  },
+  "operations": [
+    {
+      "operation": "download_file",
+      "title": "Download File",
+      "description": "Download a file from VirusTotal based on the ID you have specified.",
+      "category": "investigation",
+      "annotation": "download_file",
+      "enabled": true,
+      "parameters": [
+        {
+          "title": "Hash Value",
+          "description": "SHA-256, SHA-1 or MD5 of the file for which you want to retrieve a VirusTotal report.",
+          "required": true,
+          "editable": true,
+          "visible": true,
+          "type": "text",
+          "name": "id",
+          "tooltip": "Specify SHA-256, SHA-1 or MD5 of the file."
+        }
+      ],
+      "output_schema": {}
+    },
+    {
+      "operation": "create_zip_file",
+      "title": "Create ZIP File",
+      "description": "Creates a password-protected ZIP with VirusTotal files based on the password and hashes you have specified.",
+      "category": "investigation",
+      "annotation": "create_zip_file",
+      "enabled": true,
+      "parameters": [
+        {
+          "title": "Hashes",
+          "description": "List of comma-separated hash values based on which you want to create a zip file in VirusTotal.",
+          "required": true,
+          "editable": true,
+          "visible": true,
+          "type": "text",
+          "name": "hashes",
+          "placeholder": "e.g. e3b0c44298fc1c149afbf4c8996fb92,ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "title": "Password",
+          "description": "(Optional) Specify a password for protecting the ZIP file.",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "type": "password",
+          "name": "password"
+        }
+      ],
+      "output_schema": {
+        "type": "",
+        "id": "",
+        "attributes": {
+          "status": "",
+          "progress": "",
+          "files_ok": "",
+          "files_error": ""
+        }
+      }
+    },
+    {
+      "operation": "get_zip_file_status",
+      "title": "Get ZIP File Status",
+      "description": "Retrieves a information about a ZIP file from VirusTotal based on the ID you have specified.",
+      "category": "investigation",
+      "annotation": "get_zip_file_status",
+      "enabled": true,
+      "parameters": [
+        {
+          "title": "ZIP File ID",
+          "description": "ID of the ZIP file identifier for which you want to retrieve a zip file information from VirusTotal.",
+          "required": true,
+          "editable": true,
+          "visible": true,
+          "type": "text",
+          "name": "id",
+          "tooltip": "ID of the ZIP file identifier."
+        }
+      ],
+      "output_schema": {
+        "type": "",
+        "id": "",
+        "attributes": {
+          "status": "",
+          "progress": "",
+          "files_ok": "",
+          "files_error": ""
+        }
+      }
+    },
+    {
+      "operation": "get_zip_file_url",
+      "title": "Get ZIP File URL",
+      "description": "Retrieves a signed URL from where you can download the specified ZIP file from VirusTotal based on the ID you have specified. Note: The URL expires after 1 hour.",
+      "category": "investigation",
+      "annotation": "get_zip_file_url",
+      "enabled": true,
+      "parameters": [
+        {
+          "title": "ZIP File ID",
+          "description": "ID of the ZIP file identifier for which you want to retrieve a signed URL from VirusTotal.",
+          "required": true,
+          "editable": true,
+          "visible": true,
+          "type": "text",
+          "name": "id",
+          "tooltip": "ID of the ZIP file identifier."
+        }
+      ],
+      "output_schema": {}
+    },
+    {
+      "operation": "download_zip_file",
+      "title": "Download ZIP File",
+      "description": "Download a file from VirusTotal based on the ID you have specified.",
+      "category": "investigation",
+      "annotation": "download_zip_file",
+      "enabled": true,
+      "parameters": [
+        {
+          "title": "ZIP File ID",
+          "description": "ID of the ZIP file identifier for which you want to retrieve a signed URL from VirusTotal.",
+          "required": true,
+          "editable": true,
+          "visible": true,
+          "type": "text",
+          "name": "id",
+          "tooltip": "ID of the ZIP file identifier."
+        }
+      ],
+      "output_schema": {}
+    },
+    {
+      "operation": "get_pcap_file_behaviour",
+      "title": "Get PCAP File Behaviour",
+      "description": "Retrieves a PCAP file generated during a file’s behavior analysis in VirusTotal based on the report ID you have specified.",
+      "category": "investigation",
+      "annotation": "get_pcap_file_behaviour",
+      "enabled": true,
+      "parameters": [
+        {
+          "title": "Report ID",
+          "description": "Report ID of the sandbox for which you want to retrieve a PCAP file from VirusTotal.",
+          "required": true,
+          "editable": true,
+          "visible": true,
+          "type": "text",
+          "name": "sandbox_id",
+          "tooltip": "Report ID of the sandbox"
+        }
+      ],
+      "output_schema": {}
+    },
+    {
+      "operation": "search_intelligence",
+      "title": "Search Intelligence",
+      "description": "Search for a files in VirusTotal based on the query and other input parameters you have specified.",
+      "category": "investigation",
+      "annotation": "search_intelligence",
+      "enabled": true,
+      "parameters": [
+        {
+          "title": "Query",
+          "description": "Specify a query for which you want to search a files in VirusTotal.",
+          "required": true,
+          "editable": true,
+          "visible": true,
+          "type": "text",
+          "name": "query",
+          "tooltip": "Specify a query for which you want to search a files in VirusTotal. For ex. content: \"hello world\"",
+          "placeholder": "e.g. content: \"hello world\""
+        },
+        {
+          "title": "Order By",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "type": "text",
+          "name": "order",
+          "description": "(Optional) Order in which you want to sort the results retrieved from VirusTotal. Note: If your Query parameter contains content search the order parameter will make no effect.",
+          "tooltip": "(Optional) Order in which you want to sort the results retrieved from VirusTotal. Note: If your Query parameter contains content search the order parameter will make no effect."
+        },
+        {
+          "title": "Limit",
+          "name": "limit",
+          "description": "(Optional) Specify the number of results this operation returns, per page, in the response. By Default, is set as 10.",
+          "type": "integer",
+          "visible": true,
+          "editable": true,
+          "required": false,
+          "tooltip": "(Optional) Specify the number of results this operation returns, per page, in the response. By Default, is set as 10.",
+          "value": 10
+        },
+        {
+          "title": "Descriptors Only",
+          "description": "(Optional) Whether to return full object information or just object descriptors. By Default, is set as false.",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "type": "checkbox",
+          "name": "descriptors_only",
+          "value": false,
+          "tooltip": "(Optional) Whether to return full object information or just object descriptors. By Default, is set as false."
+        },
+        {
+          "title": "Cursor",
+          "description": "(Optional) Cursor is only used if a previous operation returned a partial result. If a previous response contains a cursor element, the value of the cursor element will include a cursor parameter that specifies a starting point to use for subsequent calls.",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "type": "text",
+          "name": "cursor",
+          "tooltip": "(Optional) Cursor is only used if a previous operation returned a partial result. If a previous response contains a cursor element, the value of the cursor element will include a cursor parameter that specifies a starting point to use for subsequent calls."
+        }
+      ],
+      "output_schema": {
+        "data": [
+          {
+            "context_attributes": {
+              "confidence": "",
+              "match_in_subfile": "",
+              "snippet": ""
+            },
+            "id": "",
+            "type": ""
+          }
+        ],
+        "links": {
+          "next": "",
+          "self": ""
+        },
+        "meta": {
+          "cursor": "",
+          "days_back": ""
+        }
+      }
+    },
+    {
+      "operation": "create_livehunt_ruleset",
+      "title": "Create Livehunt Ruleset",
+      "description": "Creates a hunting livehunt ruleset based on the ruleset name, rules, and other input parameters that you have specified.",
+      "category": "investigation",
+      "annotation": "create_livehunt_ruleset",
+      "enabled": true,
+      "parameters": [
+        {
+          "title": "Ruleset Name",
+          "description": "Name of the ruleset based on which you want to create hunting livehunt ruleset in VirusTotal.",
+          "required": true,
+          "editable": true,
+          "visible": true,
+          "type": "text",
+          "name": "name"
+        },
+        {
+          "title": "Rules",
+          "description": "Specify a rules based on which you want to create hunting livehunt ruleset in VirustTotal.",
+          "required": true,
+          "editable": true,
+          "visible": true,
+          "type": "text",
+          "name": "rules",
+          "placeholder": "e.g. rule foobar { strings: $ = \"foobar\" condition: all of them }"
+        },
+        {
+          "title": "Enabled",
+          "description": "(Optional) Select this option (default is selected) to enabled livehunt ruleset from which you want to create a livehunt ruleset in VirusTotal.",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "type": "checkbox",
+          "name": "enabled",
+          "value": true,
+          "tooltip": "(Optional) Select this option (default is selected) to enabled livehunt ruleset from which you want to create a livehunt ruleset in VirusTotal."
+        },
+        {
+          "title": "Limit",
+          "description": "(Optional) Specify the number of results this operation returns, per page, in the response.By Default, is set as 100.",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "type": "integer",
+          "name": "limit",
+          "value": 100
+        },
+        {
+          "title": "Notification Emails",
+          "description": "(Optional) List of comma-separated notifications emails based on which you want to create a livehunt ruleset in VirusTotal.",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "type": "text",
+          "name": "notification_emails",
+          "placeholder": "e.g. demo@fortinet.com, sample@fortinet.com"
+        }
+      ],
+      "output_schema": {}
+    },
+    {
+      "operation": "get_livehunt_rulesets_list",
+      "title": "Get Livehunt Rulesets List",
+      "description": "Retrieves a list of all livehunt rulesets from VirusTotal based on the input parameters that you have specified.",
+      "category": "investigation",
+      "annotation": "get_livehunt_rulesets_list",
+      "enabled": true,
+      "parameters": [
+        {
+          "title": "Filter",
+          "description": "Specify a filter for which you want to filter the rulesets according to the values of certain attributes in VirusTotal.",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "type": "text",
+          "name": "filter",
+          "tooltip": "Specify a filter for which you want to filter the rulesets according to the values of certain attributes in VirusTotal. For ex. filter=enabled:true",
+          "placeholder": "e.g. enabled:true"
+        },
+        {
+          "title": "Order By",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "type": "text",
+          "name": "order",
+          "description": "(Optional) Order in which you want to sort the results retrieved from VirusTotal. Note: If your Query parameter contains content search the order parameter will make no effect.",
+          "tooltip": "(Optional) Order in which you want to sort the results retrieved from VirusTotal. Note: If your Query parameter contains content search the order parameter will make no effect.",
+          "placeholder": "e.g. creation_date+"
+        },
+        {
+          "title": "Limit",
+          "name": "limit",
+          "description": "(Optional) Specify the number of results this operation returns, per page, in the response. By Default, is set as 10.",
+          "type": "integer",
+          "visible": true,
+          "editable": true,
+          "required": false,
+          "tooltip": "(Optional) Specify the number of results this operation returns, per page, in the response. By Default, is set as 10.",
+          "value": 10
+        },
+        {
+          "title": "Cursor",
+          "description": "(Optional) Cursor is only used if a previous operation returned a partial result. If a previous response contains a cursor element, the value of the cursor element will include a cursor parameter that specifies a starting point to use for subsequent calls.",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "type": "text",
+          "name": "cursor",
+          "tooltip": "(Optional) Cursor is only used if a previous operation returned a partial result. If a previous response contains a cursor element, the value of the cursor element will include a cursor parameter that specifies a starting point to use for subsequent calls."
+        }
+      ],
+      "output_schema": {
+        "data": [
+          {
+            "type": "",
+            "id": "",
+            "links": {
+              "self": ""
+            },
+            "attributes": {
+              "creation_date": "",
+              "enabled": "",
+              "limit": "",
+              "modification_date": "",
+              "name": "",
+              "notification_emails": [],
+              "rules": ""
+            }
+          }
+        ],
+        "meta": {
+          "cursor": ""
+        },
+        "links": {
+          "self": "",
+          "next": ""
+        }
+      }
+    },
+    {
+      "operation": "get_livehunt_ruleset_details",
+      "title": "Get Livehunt Ruleset Details",
+      "description": "Retrieve a specific livehunt ruleset from VirusTotal based on the ruleset ID you have specified.",
+      "category": "investigation",
+      "annotation": "get_livehunt_ruleset_details",
+      "enabled": true,
+      "parameters": [
+        {
+          "title": "Ruleset ID",
+          "description": "ID of the ruleset for which you want to retrieve a livehunt ruleset details from VirusTotal.",
+          "required": true,
+          "editable": true,
+          "visible": true,
+          "type": "text",
+          "name": "id",
+          "tooltip": "ID of the Ruleset."
+        }
+      ],
+      "output_schema": {}
+    },
+    {
+      "operation": "update_livehunt_ruleset",
+      "title": "Update Livehunt Ruleset",
+      "description": "Updates a hunting livehunt ruleset based on the ruleset id, ruleset name, and other input parameters that you have specified.",
+      "category": "investigation",
+      "annotation": "update_livehunt_ruleset",
+      "enabled": true,
+      "parameters": [
+        {
+          "title": "Ruleset ID",
+          "description": "ID of the ruleset based on which you want to update livehunt ruleset in VirusTotal.",
+          "required": true,
+          "editable": true,
+          "visible": true,
+          "type": "text",
+          "name": "name"
+        },
+        {
+          "title": "Ruleset Name",
+          "description": "Name of the ruleset based on which you want to update livehunt ruleset in VirusTotal.",
+          "required": true,
+          "editable": true,
+          "visible": true,
+          "type": "text",
+          "name": "name"
+        },
+        {
+          "title": "Rules",
+          "description": "Specify a rules based on which you want to update livehunt ruleset in VirustTotal.",
+          "required": true,
+          "editable": true,
+          "visible": true,
+          "type": "text",
+          "name": "rules",
+          "placeholder": "e.g. rule foobar { strings: $ = \"foobar\" condition: all of them }"
+        },
+        {
+          "title": "Enabled",
+          "description": "(Optional) Select this option (default is selected) to enabled livehunt ruleset from which you want to update a livehunt ruleset in VirusTotal.",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "type": "checkbox",
+          "name": "enabled",
+          "value": true,
+          "tooltip": "(Optional) Select this option (default is selected) to enabled livehunt ruleset from which you want to create a livehunt ruleset in VirusTotal."
+        },
+        {
+          "title": "Limit",
+          "description": "(Optional) Specify the number of results this operation returns, per page, in the response.By Default, is set as 100.",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "type": "integer",
+          "name": "limit",
+          "value": 100
+        },
+        {
+          "title": "Notification Emails",
+          "description": "(Optional) List of comma-separated notifications emails based on which you want to update a livehunt ruleset in VirusTotal.",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "type": "text",
+          "name": "notification_emails",
+          "placeholder": "e.g. demo@fortinet.com, sample@fortinet.com"
+        }
+      ],
+      "output_schema": {}
+    },
+    {
+      "operation": "delete_livehunt_ruleset",
+      "title": "Delete Livehunt Ruleset",
+      "description": "Deletes a specific livehunt ruleset from VirusTotal based on the ruleset ID you have specified.",
+      "category": "investigation",
+      "annotation": "delete_livehunt_ruleset",
+      "enabled": true,
+      "parameters": [
+        {
+          "title": "Ruleset ID",
+          "description": "ID of the ruleset for which you want to remove a livehunt ruleset details from VirusTotal.",
+          "required": true,
+          "editable": true,
+          "visible": true,
+          "type": "text",
+          "name": "id",
+          "tooltip": "ID of the Ruleset."
+        }
+      ],
+      "output_schema": {}
+    },
+    {
+      "operation": "get_livehunt_notifications_list",
+      "title": "Get Livehunt Notifications List",
+      "description": "Retrieves a list of all livehunt notifications from VirusTotal based on the input parameters that you have specified.",
+      "category": "investigation",
+      "annotation": "get_livehunt_notifications_list",
+      "enabled": true,
+      "parameters": [
+        {
+          "title": "Filter",
+          "description": "(Optional)Specify a filter for which you want to filter the livehunt notifications according to the values of certain attributes in VirusTotal.",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "type": "text",
+          "name": "filter",
+          "tooltip": "(Optional)Specify a filter for which you want to filter the livehunt notifications according to the values of certain attributes in VirusTotal. For ex. filter=enabled:true",
+          "placeholder": "e.g. tag:my_rule"
+        },
+        {
+          "title": "Order By",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "type": "text",
+          "name": "order",
+          "description": "(Optional) Order in which you want to sort the results retrieved from VirusTotal.",
+          "tooltip": "(Optional) Order in which you want to sort the results retrieved from VirusTotal.",
+          "placeholder": "e.g. date+"
+        },
+        {
+          "title": "Limit",
+          "name": "limit",
+          "description": "(Optional) Specify the number of results this operation returns, per page, in the response. By Default, is set as 10.",
+          "type": "integer",
+          "visible": true,
+          "editable": true,
+          "required": false,
+          "tooltip": "(Optional) Specify the number of results this operation returns, per page, in the response. By Default, is set as 10.",
+          "value": 10
+        },
+        {
+          "title": "Cursor",
+          "description": "(Optional) Cursor is only used if a previous operation returned a partial result. If a previous response contains a cursor element, the value of the cursor element will include a cursor parameter that specifies a starting point to use for subsequent calls.",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "type": "text",
+          "name": "cursor",
+          "tooltip": "(Optional) Cursor is only used if a previous operation returned a partial result. If a previous response contains a cursor element, the value of the cursor element will include a cursor parameter that specifies a starting point to use for subsequent calls."
+        },
+        {
+          "title": "Count Limit",
+          "name": "count_limit",
+          "description": "(Optional) Specify the maximum number of notifications counted this operation returns in the response. By Default, is set as 200 and maximum value is 10,000.",
+          "type": "integer",
+          "visible": true,
+          "editable": true,
+          "required": false,
+          "tooltip": "(Optional) Specify the maximum number of notifications counted this operation returns in the response. By Default, is set as 200 and maximum value is 10,000.",
+          "value": 200
+        }
+      ],
+      "output_schema": {}
+    },
+    {
+      "operation": "get_livehunt_notifications_files_list",
+      "title": "Get Livehunt Notifications Files List",
+      "description": "Retrieves a list of all file objects for livehunt notifications from VirusTotal based on the input parameters that you have specified.",
+      "category": "investigation",
+      "annotation": "get_livehunt_notifications_files_list",
+      "enabled": true,
+      "parameters": [
+        {
+          "title": "Filter",
+          "description": "(Optional)Specify a filter for which you want to filter the files objects for livehunt notifications according to the values of certain attributes in VirusTotal.",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "type": "text",
+          "name": "filter",
+          "tooltip": "(Optional)Specify a filter for which you want to filter the files objects for livehunt notifications according to the values of certain attributes in VirusTotal. For ex. filter=enabled:true",
+          "placeholder": "e.g. tag:my_rule"
+        },
+        {
+          "title": "Limit",
+          "name": "limit",
+          "description": "(Optional) Specify the number of results this operation returns, per page, in the response. By Default, is set as 10.",
+          "type": "integer",
+          "visible": true,
+          "editable": true,
+          "required": false,
+          "tooltip": "(Optional) Specify the number of results this operation returns, per page, in the response. By Default, is set as 10.",
+          "value": 10
+        },
+        {
+          "title": "Cursor",
+          "description": "(Optional) Cursor is only used if a previous operation returned a partial result. If a previous response contains a cursor element, the value of the cursor element will include a cursor parameter that specifies a starting point to use for subsequent calls.",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "type": "text",
+          "name": "cursor",
+          "tooltip": "(Optional) Cursor is only used if a previous operation returned a partial result. If a previous response contains a cursor element, the value of the cursor element will include a cursor parameter that specifies a starting point to use for subsequent calls."
+        },
+        {
+          "title": "Count Limit",
+          "name": "count_limit",
+          "description": "(Optional) Specify the maximum number of notifications counted this operation returns in the response. By Default, is set as 200 and maximum value is 10,000.",
+          "type": "integer",
+          "visible": true,
+          "editable": true,
+          "required": false,
+          "tooltip": "(Optional) Specify the maximum number of notifications counted this operation returns in the response. By Default, is set as 200 and maximum value is 10,000.",
+          "value": 200
+        }
+      ],
+      "output_schema": {}
+    },
+    {
+      "operation": "get_livehunt_notifications_details",
+      "title": "Get Livehunt Notifications Details",
+      "description": "Retrieve a specific livehunt notifications from VirusTotal based on the notification ID you have specified.",
+      "category": "investigation",
+      "annotation": "get_livehunt_notifications_details",
+      "enabled": true,
+      "parameters": [
+        {
+          "title": "Notification ID",
+          "description": "ID of the notification for which you want to retrieve a livehunt notification details from VirusTotal.",
+          "required": true,
+          "editable": true,
+          "visible": true,
+          "type": "text",
+          "name": "id",
+          "tooltip": "ID of the notification."
+        }
+      ],
+      "output_schema": {}
+    },
+    {
+      "operation": "get_livehunt_rule_files_list",
+      "title": "Get Livehunt Rule Files List",
+      "description": "Retrieve a hunting livehunt ruleset by hunting notification files relationship from VirusTotal based on the ruleset ID and other input parameters that you have specified.",
+      "category": "investigation",
+      "annotation": "get_livehunt_rule_files_list",
+      "enabled": true,
+      "parameters": [
+        {
+          "title": "Ruleset ID",
+          "description": "ID of the ruleset for which you want to retrieve a hunting livehunt ruleset by hunting notification files relationship from VirusTotal.",
+          "required": true,
+          "editable": true,
+          "visible": true,
+          "type": "text",
+          "name": "id",
+          "tooltip": "ID of the ruleset."
+        },
+        {
+          "title": "Limit",
+          "name": "limit",
+          "description": "(Optional) Specify the number of results this operation returns, per page, in the response.",
+          "type": "integer",
+          "visible": true,
+          "editable": true,
+          "required": false,
+          "tooltip": "(Optional) Specify the number of results this operation returns, per page, in the response."
+        },
+        {
+          "title": "Cursor",
+          "description": "(Optional) Cursor is only used if a previous operation returned a partial result. If a previous response contains a cursor element, the value of the cursor element will include a cursor parameter that specifies a starting point to use for subsequent calls.",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "type": "text",
+          "name": "cursor",
+          "tooltip": "(Optional) Cursor is only used if a previous operation returned a partial result. If a previous response contains a cursor element, the value of the cursor element will include a cursor parameter that specifies a starting point to use for subsequent calls."
+        }
+      ],
+      "output_schema": {}
+    },
+    {
+      "operation": "create_retrohunt_job",
+      "title": "Create Retrohunt Job",
+      "description": "Creates a retrohunt job based on the  rules, and other input parameters that you have specified.",
+      "category": "investigation",
+      "annotation": "create_retrohunt_job",
+      "enabled": true,
+      "parameters": [
+        {
+          "title": "Rules",
+          "description": "Specify a rules based on which you want to create hunting livehunt ruleset in VirustTotal.",
+          "required": true,
+          "editable": true,
+          "visible": true,
+          "type": "text",
+          "name": "rules",
+          "placeholder": "e.g. rule demo { strings: $ = \"demo\" condition: all of them }"
+        },
+        {
+          "title": "Notification Emails",
+          "description": "(Optional) List of comma-separated notifications emails based on which you want to update a livehunt ruleset in VirusTotal.",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "type": "text",
+          "name": "notification_emails"
+        },
+        {
+          "title": "Corpus",
+          "description": "(Optional) Corpus allows you to select which dataset you want to scan with your job. You can choose either Main, or GoodWare.",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "type": "select",
+          "name": "corpus",
+          "options": [
+            "Main",
+            "GoodWare"
+          ]
+        },
+        {
+          "title": "Start Time",
+          "description": "(Optional) Specify the starting DateTime from when you want to create retrohunt job in VirusTotal.",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "type": "datetime",
+          "name": "start_time",
+          "tooltip": "(Optional) Specify the starting DateTime from when you want to create a retrohunt job in VirusTotal."
+        },
+        {
+          "title": "End time",
+          "description": "(Optional) Specify the ending DateTime till when you want to create a retrohunt job in VirusTotal.",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "type": "datetime",
+          "name": "end_time",
+          "tooltip": "(Optional) Specify the ending DateTime till when you want to create a retrohunt job in VirusTotal."
+        }
+      ],
+      "output_schema": {}
+    },
+    {
+      "operation": "abort_retrohunt_job",
+      "title": "Abort Retrohunt Job",
+      "description": "Abort a specific retrohunt job from VirusTotal based on the job ID you have specified.",
+      "category": "investigation",
+      "annotation": "abort_retrohunt_job",
+      "enabled": true,
+      "parameters": [
+        {
+          "title": "job ID",
+          "description": "ID of the job for which you want to abort a retrohunt job in VirusTotal.",
+          "required": true,
+          "editable": true,
+          "visible": true,
+          "type": "text",
+          "name": "id",
+          "tooltip": "ID of the job."
+        }
+      ],
+      "output_schema": {}
+    },
+    {
+      "operation": "get_retrohunt_jobs_list",
+      "title": "Get Retrohunt jobs List",
+      "description": "Retrieves a list of all retrohunt jobs from VirusTotal based on the input parameters that you have specified.",
+      "category": "investigation",
+      "annotation": "get_retrohunt_jobs_list",
+      "enabled": true,
+      "parameters": [
+        {
+          "title": "Filter",
+          "description": "(Optional)Specify a filter for which you want to filter the retrohunt jobs according to the values of certain attributes in VirusTotal.",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "type": "text",
+          "name": "filter",
+          "tooltip": "(Optional)Specify a filter for which you want to filter the retrohunt jobs according to the values of certain attributes in VirusTotal. For ex. filter=enabled:true",
+          "placeholder": "e.g. tag:my_rule"
+        },
+        {
+          "title": "Limit",
+          "name": "limit",
+          "description": "(Optional) Specify the number of results this operation returns, per page, in the response. By Default, is set as 10.",
+          "type": "integer",
+          "visible": true,
+          "editable": true,
+          "required": false,
+          "tooltip": "(Optional) Specify the number of results this operation returns, per page, in the response. By Default, is set as 10.",
+          "value": 10
+        },
+        {
+          "title": "Cursor",
+          "description": "(Optional) Cursor is only used if a previous operation returned a partial result. If a previous response contains a cursor element, the value of the cursor element will include a cursor parameter that specifies a starting point to use for subsequent calls.",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "type": "text",
+          "name": "cursor",
+          "tooltip": "(Optional) Cursor is only used if a previous operation returned a partial result. If a previous response contains a cursor element, the value of the cursor element will include a cursor parameter that specifies a starting point to use for subsequent calls."
+        }
+      ],
+      "output_schema": {}
+    },
+    {
+      "operation": "get_retrohunt_job_details",
+      "title": "Get Retrohunt Job Details",
+      "description": "Retrieve a specific retrohunt job from VirusTotal based on the job ID you have specified.",
+      "category": "investigation",
+      "annotation": "get_retrohunt_job_details",
+      "enabled": true,
+      "parameters": [
+        {
+          "title": "job ID",
+          "description": "ID of the job for which you want to retrieve a retrohunt job details from VirusTotal.",
+          "required": true,
+          "editable": true,
+          "visible": true,
+          "type": "text",
+          "name": "id",
+          "tooltip": "ID of the job."
+        }
+      ],
+      "output_schema": {}
+    },
+    {
+      "operation": "get_retrohunt_job_matching_files",
+      "title": "Get Retrohunt Job Matching Files",
+      "description": "Retrieves a list of all retrohunt job matching files from VirusTotal based on the input parameters that you have specified.",
+      "category": "investigation",
+      "annotation": "get_retrohunt_job_matching_files",
+      "enabled": true,
+      "parameters": [
+        {
+          "title": "Limit",
+          "name": "limit",
+          "description": "(Optional) Specify the number of results this operation returns, per page, in the response. By Default, is set as 10.",
+          "type": "integer",
+          "visible": true,
+          "editable": true,
+          "required": false,
+          "tooltip": "(Optional) Specify the number of results this operation returns, per page, in the response. By Default, is set as 10.",
+          "value": 10
+        },
+        {
+          "title": "Cursor",
+          "description": "(Optional) Cursor is only used if a previous operation returned a partial result. If a previous response contains a cursor element, the value of the cursor element will include a cursor parameter that specifies a starting point to use for subsequent calls.",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "type": "text",
+          "name": "cursor",
+          "tooltip": "(Optional) Cursor is only used if a previous operation returned a partial result. If a previous response contains a cursor element, the value of the cursor element will include a cursor parameter that specifies a starting point to use for subsequent calls."
+        }
+      ],
+      "output_schema": {}
+    },
+    {
+      "operation": "delete_retrohunt_job",
+      "title": "Delete Retrohunt Job",
+      "description": "Delete a specific retrohunt job from VirusTotal based on the job ID you have specified.",
+      "category": "investigation",
+      "annotation": "delete_retrohunt_job",
+      "enabled": true,
+      "parameters": [
+        {
+          "title": "job ID",
+          "description": "ID of the job for which you want to delete a retrohunt job in VirusTotal.",
+          "required": true,
+          "editable": true,
+          "visible": true,
+          "type": "text",
+          "name": "id",
+          "tooltip": "ID of the job."
+        }
+      ],
+      "output_schema": {}
+    }
+  ]
+}
