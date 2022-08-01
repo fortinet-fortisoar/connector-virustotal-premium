@@ -40,7 +40,8 @@ class VirusTotalPremium(object):
         try:
             url = self.url + url
             headers = {
-                'x-apikey': self.api_key
+                'x-apikey': self.api_key,
+                'Content-Type': 'application/json'
             }
             logger.debug("Endpoint {0}".format(url))
             response = requests.request(method, url, data=data, params=params, json=json, headers=headers,
@@ -139,7 +140,7 @@ def get_zip_file_url(config, params):
     endpoint = 'intelligence/zip_files/{0}/download_url'.format(params.get('id'))
     try:
         response = vtp.make_rest_call(endpoint, 'GET')
-        return response
+        return {"url": response.get('data')}
     except Exception as err:
         logger.exception("{0}".format(str(err)))
         raise ConnectorError("{0}".format(str(err)))
@@ -149,7 +150,7 @@ def download_zip_file(config, params):
     vtp = VirusTotalPremium(config)
     endpoint = 'intelligence/zip_files/{0}/download'.format(params.get('id'))
     try:
-        file_name = params.get('id')
+        file_name = str(params.get('id')) + '.zip'
         response = vtp.make_rest_call(endpoint, 'GET')
         logger.debug("API response: {0}".format(response))
         if response:
@@ -199,7 +200,7 @@ def create_livehunt_ruleset(config, params):
     vtp = VirusTotalPremium(config)
     endpoint = 'intelligence/hunting_rulesets'
     notifications = params.get('notification_emails')
-    if not isinstance(notifications, list):
+    if notifications:
         notifications = notifications.split(",")
     try:
         payload = {
@@ -210,13 +211,13 @@ def create_livehunt_ruleset(config, params):
                     "enabled": params.get('enabled'),
                     "limit": params.get('limit'),
                     "rules": params.get('rules'),
-                    "notification_emails": notifications
+                    "notification_email": notifications
                 }
             }
         }
         payload = check_payload(payload)
         response = vtp.make_rest_call(endpoint, 'POST', data=json.dumps(payload))
-        return response
+        return response.get('data')
     except Exception as err:
         logger.exception("{0}".format(str(err)))
         raise ConnectorError("{0}".format(str(err)))
@@ -245,7 +246,7 @@ def get_livehunt_ruleset_details(config, params):
     endpoint = 'intelligence/hunting_rulesets/{0}'.format(params.get('id'))
     try:
         response = vtp.make_rest_call(endpoint, 'GET')
-        return response
+        return response.get('data')
     except Exception as err:
         logger.exception("{0}".format(str(err)))
         raise ConnectorError("{0}".format(str(err)))
@@ -255,7 +256,7 @@ def update_livehunt_ruleset(config, params):
     vtp = VirusTotalPremium(config)
     endpoint = 'intelligence/hunting_rulesets/{0}'.format(params.get('id'))
     notifications = params.get('notification_emails')
-    if not isinstance(notifications, list):
+    if notifications:
         notifications = notifications.split(",")
     try:
         payload = {
@@ -266,7 +267,7 @@ def update_livehunt_ruleset(config, params):
                     "enabled": params.get('enabled'),
                     "limit": params.get('limit'),
                     "rules": params.get('rules'),
-                    "notification_emails": notifications
+                    "notification_email": notifications
                 }
             }
         }
@@ -283,7 +284,8 @@ def delete_livehunt_ruleset(config, params):
     endpoint = 'intelligence/hunting_rulesets/{0}'.format(params.get('id'))
     try:
         response = vtp.make_rest_call(endpoint, 'DELETE')
-        return response
+        if response:
+            return {"message": "Successful deleted livehunt ruleset {0}".format(params.get('id'))}
     except Exception as err:
         logger.exception("{0}".format(str(err)))
         raise ConnectorError("{0}".format(str(err)))
@@ -331,7 +333,7 @@ def get_livehunt_notifications_details(config, params):
     endpoint = 'intelligence/hunting_notifications/{0}'.format(params.get('id'))
     try:
         response = vtp.make_rest_call(endpoint, 'GET')
-        return response
+        return response.get('data')
     except Exception as err:
         logger.exception("{0}".format(str(err)))
         raise ConnectorError("{0}".format(str(err)))
@@ -369,16 +371,13 @@ def create_retrohunt_job(config, params):
     if 'T' in end_time:
         end_time = convert_datetime_to_epoch(end_time)
     corpus = params.get('corpus')
-    notifications = params.get('notification_emails')
-    if not isinstance(notifications, list):
-        notifications = notifications.split(",")
     try:
         payload = {
             "data": {
                 "type": "retrohunt_job",
                 "attributes": {
                     "rules": params.get('rules'),
-                    "notification_emails": notifications,
+                    "notification_email": params.get('notification_emails'),
                     "corpus": corpus.lower() if corpus else '',
                     "time_range": {
                         "start": start_time,
@@ -439,7 +438,8 @@ def delete_retrohunt_job(config, params):
     endpoint = 'intelligence/retrohunt_jobs/{0}'.format(params.get('id'))
     try:
         response = vtp.make_rest_call(endpoint, 'DELETE')
-        return response
+        if response:
+            return {"message": "Successful deleted retrohunt job {0}".format(params.get('id'))}
     except Exception as err:
         logger.exception("{0}".format(str(err)))
         raise ConnectorError("{0}".format(str(err)))

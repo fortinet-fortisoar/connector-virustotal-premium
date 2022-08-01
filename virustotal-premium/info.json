@@ -97,13 +97,16 @@
         }
       ],
       "output_schema": {
-        "type": "",
-        "id": "",
         "attributes": {
           "status": "",
-          "progress": "",
+          "files_error": "",
           "files_ok": "",
-          "files_error": ""
+          "progress": ""
+        },
+        "type": "",
+        "id": "",
+        "links": {
+          "self": ""
         }
       }
     },
@@ -127,13 +130,16 @@
         }
       ],
       "output_schema": {
-        "type": "",
-        "id": "",
         "attributes": {
           "status": "",
-          "progress": "",
+          "files_error": "",
           "files_ok": "",
-          "files_error": ""
+          "progress": ""
+        },
+        "type": "",
+        "id": "",
+        "links": {
+          "self": ""
         }
       }
     },
@@ -156,7 +162,9 @@
           "tooltip": "Specify the file identifier of the ZIP file for which you want to retrieve a signed URL from VirusTotal."
         }
       ],
-      "output_schema": {}
+      "output_schema": {
+        "url": ""
+      }
     },
     {
       "operation": "download_zip_file",
@@ -226,8 +234,8 @@
           "visible": true,
           "type": "text",
           "name": "order",
-          "description": "Optional) Specify the order in which you want to sort the results retrieved from VirusTotal. Note: If your 'Query' parameter contains content search, then the 'Order' parameter does not have any effect.",
-          "tooltip": "Optional) Specify the order in which you want to sort the results retrieved from VirusTotal. Note: If your 'Query' parameter contains content search, then the 'Order' parameter does not have any effect."
+          "description": "(Optional) Specify the order in which you want to sort the results retrieved from VirusTotal. Note: If your 'Query' parameter contains content search, then the 'Order' parameter does not have any effect.",
+          "tooltip": "(Optional) Specify the order in which you want to sort the results retrieved from VirusTotal. Note: If your 'Query' parameter contains content search, then the 'Order' parameter does not have any effect."
         },
         {
           "title": "Limit",
@@ -263,24 +271,185 @@
         }
       ],
       "output_schema": {
-        "data": [
-          {
-            "context_attributes": {
-              "confidence": "",
-              "match_in_subfile": "",
-              "snippet": ""
-            },
-            "id": "",
-            "type": ""
-          }
-        ],
-        "links": {
-          "next": "",
-          "self": ""
-        },
         "meta": {
           "cursor": "",
           "days_back": ""
+        },
+        "data": [
+          {
+            "attributes": {
+              "type_description": "",
+              "tlsh": "",
+              "vhash": "",
+              "exiftool": {
+                "ZipRequiredVersion": "",
+                "MIMEType": "",
+                "ZipCRC": "",
+                "FileType": "",
+                "ZipCompression": "",
+                "ZipUncompressedSize": "",
+                "ZipCompressedSize": "",
+                "FileTypeExtension": "",
+                "ZipFileName": "",
+                "ZipBitFlag": "",
+                "ZipModifyDate": ""
+              },
+              "trid": [
+                {
+                  "file_type": "",
+                  "probability": ""
+                }
+              ],
+              "crowdsourced_yara_results": [
+                {
+                  "description": "",
+                  "source": "",
+                  "author": "",
+                  "ruleset_name": "",
+                  "rule_name": "",
+                  "ruleset_id": ""
+                }
+              ],
+              "names": [
+              ],
+              "last_modification_date": "",
+              "type_tag": "",
+              "times_submitted": "",
+              "total_votes": {
+                "harmless": "",
+                "malicious": ""
+              },
+              "size": "",
+              "type_extension": "",
+              "last_submission_date": "",
+              "last_analysis_results": {},
+              "downloadable": "",
+              "sha256": "",
+              "tags": [
+              ],
+              "last_analysis_date": "",
+              "unique_sources": "",
+              "first_submission_date": "",
+              "sha1": "",
+              "ssdeep": "",
+              "bundle_info": {
+                "highest_datetime": "",
+                "lowest_datetime": "",
+                "num_children": "",
+                "extensions": {
+                  "dex": "",
+                  "xml": "",
+                  "MF": "",
+                  "png": "",
+                  "zip": "",
+                  "RSA": "",
+                  "jpg": "",
+                  "swf": "",
+                  "dat": "",
+                  "so": "",
+                  "mp3": "",
+                  "ttf": "",
+                  "ogg": "",
+                  "txt": "",
+                  "sg": "",
+                  "SF": "",
+                  "pbk": "",
+                  "pbj": ""
+                },
+                "file_types": {
+                  "XML": "",
+                  "DEX": "",
+                  "ZIP": "",
+                  "unknown": "",
+                  "ELF": "",
+                  "JPG": "",
+                  "MP3": "",
+                  "OGG": "",
+                  "PNG": ""
+                },
+                "type": "",
+                "uncompressed_size": ""
+              },
+              "md5": "",
+              "androguard": {
+                "VTAndroidInfo": "",
+                "Libraries": [
+                ],
+                "AndroidApplicationError": "",
+                "MinSdkVersion": "",
+                "AndroguardVersion": "",
+                "Activities": [],
+                "certificate": {
+                  "Subject": {
+                    "DN": "",
+                    "CN": ""
+                  },
+                  "validto": "",
+                  "serialnumber": "",
+                  "thumbprint": "",
+                  "validfrom": "",
+                  "Issuer": {
+                    "DN": "",
+                    "CN": ""
+                  }
+                },
+                "AndroidApplication": "",
+                "RiskIndicator": {
+                  "APK": {
+                    "SHARED LIBRARIES": ""
+                  },
+                  "PERM": {
+                    "DANGEROUS": "",
+                    "INTERNET": "",
+                    "INSTANT": "",
+                    "NORMAL": ""
+                  }
+                },
+                "Services": [],
+                "AndroidVersionCode": "",
+                "main_activity": "",
+                "Package": "",
+                "intent_filters": {},
+                "AndroidVersionName": "",
+                "TargetSdkVersion": "",
+                "AndroidApplicationInfo": "",
+                "Providers": [
+                ],
+                "permission_details": {},
+                "Receivers": [
+                ],
+                "StringsInformation": [
+                ]
+              },
+              "magic": "",
+              "last_analysis_stats": {
+                "harmless": "",
+                "type-unsupported": "",
+                "suspicious": "",
+                "confirmed-timeout": "",
+                "timeout": "",
+                "failure": "",
+                "malicious": "",
+                "undetected": ""
+              },
+              "meaningful_name": "",
+              "reputation": ""
+            },
+            "type": "",
+            "id": "",
+            "links": {
+              "self": ""
+            },
+            "context_attributes": {
+              "snippet": "",
+              "confidence": "",
+              "match_in_subfile": ""
+            }
+          }
+        ],
+        "links": {
+          "self": "",
+          "next": ""
         }
       }
     },
@@ -311,7 +480,7 @@
           "type": "text",
           "name": "rules",
           "tooltip": "Specify the rules based on which you want to create the hunting livehunt ruleset in VirustTotal.",
-          "placeholder": "e.g. rule foobar { strings: $ = \"foobar\" condition: all of them }"
+          "placeholder": "e.g. rule foobar {strings: $ = \"foobar\" condition: all of them}"
         },
         {
           "title": "Enabled",
@@ -347,7 +516,27 @@
           "placeholder": "e.g. demo@fortinet.com, sample@fortinet.com"
         }
       ],
-      "output_schema": {}
+      "output_schema": {
+        "attributes": {
+          "name": "",
+          "modification_date": "",
+          "rules": "",
+          "enabled": "",
+          "rate_limited": "",
+          "creation_date": "",
+          "rule_names": [
+          ],
+          "limit": "",
+          "rate_limited_ratio": "",
+          "notification_emails": [],
+          "number_of_rules": ""
+        },
+        "type": "",
+        "id": "",
+        "links": {
+          "self": ""
+        }
+      }
     },
     {
       "operation": "get_livehunt_rulesets_list",
@@ -359,13 +548,13 @@
       "parameters": [
         {
           "title": "Filter",
-          "description": "Optional) Specify the filter using values of certain attributes, for example, filter=enabled:true, based on which you want to filter the livehunt rulesets retrieved from VirusTotal.",
+          "description": "(Optional) Specify the filter using values of certain attributes, for example, filter=enabled:true, based on which you want to filter the livehunt rulesets retrieved from VirusTotal.",
           "required": false,
           "editable": true,
           "visible": true,
           "type": "text",
           "name": "filter",
-          "tooltip": "Optional) Specify the filter using values of certain attributes, for example, filter=enabled:true, based on which you want to filter the livehunt rulesets retrieved from VirusTotal.",
+          "tooltip": "(Optional) Specify the filter using values of certain attributes, for example, filter=enabled:true, based on which you want to filter the livehunt rulesets retrieved from VirusTotal.",
           "placeholder": "e.g. enabled:true"
         },
         {
@@ -402,27 +591,32 @@
         }
       ],
       "output_schema": {
+        "meta": {
+          "count": "",
+          "cursor": ""
+        },
         "data": [
           {
+            "attributes": {
+              "name": "",
+              "modification_date": "",
+              "rules": "",
+              "enabled": "",
+              "rate_limited": "",
+              "creation_date": "",
+              "rule_names": [],
+              "limit": "",
+              "rate_limited_ratio": "",
+              "notification_emails": [],
+              "number_of_rules": ""
+            },
             "type": "",
             "id": "",
             "links": {
               "self": ""
-            },
-            "attributes": {
-              "creation_date": "",
-              "enabled": "",
-              "limit": "",
-              "modification_date": "",
-              "name": "",
-              "notification_emails": [],
-              "rules": ""
             }
           }
         ],
-        "meta": {
-          "cursor": ""
-        },
         "links": {
           "self": "",
           "next": ""
@@ -448,7 +642,28 @@
           "tooltip": "Specify the ID of the livehunt ruleset for which you want to retrieve details from VirusTotal."
         }
       ],
-      "output_schema": {}
+      "output_schema": {
+        "attributes": {
+          "name": "",
+          "modification_date": "",
+          "rules": "",
+          "enabled": "",
+          "rate_limited": "",
+          "creation_date": "",
+          "rule_names": [
+          ],
+          "limit": "",
+          "rate_limited_ratio": "",
+          "notification_emails": [
+          ],
+          "number_of_rules": ""
+        },
+        "type": "",
+        "id": "",
+        "links": {
+          "self": ""
+        }
+      }
     },
     {
       "operation": "update_livehunt_ruleset",
@@ -523,7 +738,28 @@
           "tooltip": "(Optional) Specify the list of comma-separated notifications emails using which you want to update the livehunt ruleset in VirusTotal."
         }
       ],
-      "output_schema": {}
+      "output_schema": {
+        "attributes": {
+          "name": "",
+          "modification_date": "",
+          "rules": "",
+          "enabled": "",
+          "rate_limited": "",
+          "creation_date": "",
+          "rule_names": [
+          ],
+          "limit": "",
+          "rate_limited_ratio": "",
+          "notification_emails": [
+          ],
+          "number_of_rules": ""
+        },
+        "type": "",
+        "id": "",
+        "links": {
+          "self": ""
+        }
+      }
     },
     {
       "operation": "delete_livehunt_ruleset",
@@ -544,7 +780,9 @@
           "tooltip": "Specify the ID of the livehunt ruleset for which you want to remove the livehunt ruleset details from VirusTotal."
         }
       ],
-      "output_schema": {}
+      "output_schema": {
+        "message": ""
+      }
     },
     {
       "operation": "get_livehunt_notifications_list",
@@ -609,7 +847,34 @@
           "value": 200
         }
       ],
-      "output_schema": {}
+      "output_schema": {
+        "meta": {
+          "count": "",
+          "cursor": ""
+        },
+        "data": [
+          {
+            "attributes": {
+              "tags": [
+              ],
+              "snippet": "",
+              "rule_name": "",
+              "date": "",
+              "rule_tags": [],
+              "match_in_subfile": ""
+            },
+            "type": "",
+            "id": "",
+            "links": {
+              "self": ""
+            }
+          }
+        ],
+        "links": {
+          "self": "",
+          "next": ""
+        }
+      }
     },
     {
       "operation": "get_livehunt_notifications_files_list",
@@ -663,7 +928,202 @@
           "value": 200
         }
       ],
-      "output_schema": {}
+      "output_schema": {
+        "meta": {
+          "count": "",
+          "cursor": ""
+        },
+        "data": [
+          {
+            "attributes": {
+              "type_description": "",
+              "tlsh": "",
+              "vhash": "",
+              "exiftool": {
+                "FileDescription": "",
+                "LinkerVersion": "",
+                "ImageVersion": "",
+                "FileVersionNumber": "",
+                "UninitializedDataSize": "",
+                "LanguageCode": "",
+                "InternalName": "",
+                "ImageFileCharacteristics": "",
+                "CharacterSet": "",
+                "InitializedDataSize": "",
+                "EntryPoint": "",
+                "OriginalFileName": "",
+                "MIMEType": "",
+                "Subsystem": "",
+                "FileVersion": "",
+                "TimeStamp": "",
+                "FileType": "",
+                "PEType": "",
+                "FileFlagsMask": "",
+                "ProductVersion": "",
+                "SubsystemVersion": "",
+                "OSVersion": "",
+                "FileOS": "",
+                "LegalCopyright": "",
+                "MachineType": "",
+                "CodeSize": "",
+                "FileSubtype": "",
+                "ProductVersionNumber": "",
+                "FileTypeExtension": "",
+                "ObjectFileType": ""
+              },
+              "trid": [
+                {
+                  "file_type": "",
+                  "probability": ""
+                }
+              ],
+              "signature_info": {
+                "description": "",
+                "copyright": "",
+                "internal name": "",
+                "file version": "",
+                "original name": ""
+              },
+              "creation_date": "",
+              "names": [
+              ],
+              "dot_net_guids": {
+                "mvid": ""
+              },
+              "last_modification_date": "",
+              "type_tag": "",
+              "times_submitted": "",
+              "total_votes": {
+                "harmless": "",
+                "malicious": ""
+              },
+              "size": "",
+              "type_extension": "",
+              "authentihash": "",
+              "last_submission_date": "",
+              "meaningful_name": "",
+              "downloadable": "",
+              "sha256": "",
+              "tags": [
+              ],
+              "last_analysis_date": "",
+              "unique_sources": "",
+              "first_submission_date": "",
+              "sha1": "",
+              "ssdeep": "",
+              "md5": "",
+              "dot_net_assembly": {
+                "external_modules": [
+                ],
+                "tables_rows_map_log": "",
+                "type_definition_list": [
+                  {
+                    "type_definitions": [],
+                    "namespace": ""
+                  }
+                ],
+                "external_assemblies": {
+                },
+                "tables_rows_map": "",
+                "assembly_name": "",
+                "streams": {},
+                "tables_present": "",
+                "clr_version": "",
+                "assembly_data": {
+                  "majorversion": "",
+                  "minorversion": "",
+                  "hashalgid": "",
+                  "flags_text": "",
+                  "buildnumber": "",
+                  "culture": "",
+                  "flags": "",
+                  "pubkey": "",
+                  "revisionnumber": ""
+                },
+                "tables_present_map": "",
+                "clr_meta_version": ""
+              },
+              "pe_info": {
+                "resource_details": [
+                  {
+                    "lang": "",
+                    "entropy": "",
+                    "chi2": "",
+                    "filetype": "",
+                    "sha256": "",
+                    "type": ""
+                  }
+                ],
+                "resource_types": {
+                  "RT_VERSION": ""
+                },
+                "imphash": "",
+                "resource_langs": {
+                  "NEUTRAL": ""
+                },
+                "machine_type": "",
+                "timestamp": "",
+                "entry_point": "",
+                "sections": [
+                  {
+                    "name": "",
+                    "chi2": "",
+                    "virtual_address": "",
+                    "entropy": "",
+                    "raw_size": "",
+                    "flags": "rx",
+                    "virtual_size": "",
+                    "md5": ""
+                  }
+                ],
+                "import_list": [
+                  {
+                    "library_name": "",
+                    "imported_functions": [
+                    ]
+                  }
+                ]
+              },
+              "magic": "",
+              "last_analysis_stats": {
+                "harmless": "",
+                "type-unsupported": "",
+                "suspicious": "",
+                "confirmed-timeout": "",
+                "timeout": "",
+                "failure": "",
+                "malicious": "",
+                "undetected": ""
+              },
+              "last_analysis_results": {},
+              "reputation": ""
+            },
+            "type": "",
+            "id": "",
+            "links": {
+              "self": ""
+            },
+            "context_attributes": {
+              "notification_id": "",
+              "notification_source_key": "",
+              "notification_tags": [
+              ],
+              "ruleset_name": "",
+              "notification_source_country": "",
+              "rule_name": "",
+              "notification_snippet": "",
+              "ruleset_id": "",
+              "rule_tags": [],
+              "notification_date": "",
+              "match_in_subfile": ""
+            }
+          }
+        ],
+        "links": {
+          "self": "",
+          "next": ""
+        }
+      }
     },
     {
       "operation": "get_livehunt_notifications_details",
@@ -684,7 +1144,22 @@
           "tooltip": "Specify the ID of the livehunt notification for which you want to retrieve details from VirusTotal."
         }
       ],
-      "output_schema": {}
+      "output_schema": {
+        "attributes": {
+          "tags": [
+          ],
+          "snippet": "",
+          "rule_name": "",
+          "date": "",
+          "rule_tags": [],
+          "match_in_subfile": ""
+        },
+        "type": "",
+        "id": "",
+        "links": {
+          "self": ""
+        }
+      }
     },
     {
       "operation": "get_livehunt_rule_files_list",
@@ -725,7 +1200,37 @@
           "tooltip": "(Optional) The 'Cursor' parameter is used only if a previous operation had returned a partial result. If a previous response contains a cursor element, then the value of the cursor element includes a cursor parameter that specifies a starting point to use for subsequent calls."
         }
       ],
-      "output_schema": {}
+      "output_schema": {
+        "meta": {
+          "count": "",
+          "cursor": ""
+        },
+        "data": [
+          {
+            "type": "",
+            "id": "",
+            "context_attributes": {
+              "notification_id": "",
+              "notification_source_key": "",
+              "notification_tags": [
+              ],
+              "ruleset_name": "",
+              "notification_source_country": "",
+              "rule_name": "",
+              "notification_snippet": "",
+              "ruleset_id": "",
+              "rule_tags": [],
+              "notification_date": "",
+              "match_in_subfile": ""
+            }
+          }
+        ],
+        "links": {
+          "self": "",
+          "related": "",
+          "next": ""
+        }
+      }
     },
     {
       "operation": "create_retrohunt_job",
@@ -791,7 +1296,26 @@
           "tooltip": "(Optional) Specify the ending DateTime till when you want to create the Retrohunt job in VirusTotal."
         }
       ],
-      "output_schema": {}
+      "output_schema": {
+        "data": {
+          "attributes": {
+            "status": "",
+            "rules": "",
+            "num_matches_outside_time_range": "",
+            "scanned_bytes": "",
+            "creation_date": "",
+            "progress": "",
+            "num_matches": "",
+            "notification_email": "",
+            "corpus": ""
+          },
+          "type": "",
+          "id": "",
+          "links": {
+            "self": ""
+          }
+        }
+      }
     },
     {
       "operation": "abort_retrohunt_job",
@@ -855,7 +1379,36 @@
           "tooltip": "(Optional) The 'Cursor' parameter is used only if a previous operation had returned a partial result. If a previous response contains a cursor element, then the value of the cursor element includes a cursor parameter that specifies a starting point to use for subsequent calls."
         }
       ],
-      "output_schema": {}
+      "output_schema": {
+        "meta": {
+          "count": ""
+        },
+        "data": [
+          {
+            "attributes": {
+              "status": "",
+              "rules": "",
+              "num_matches_outside_time_range": "",
+              "corpus": "",
+              "scanned_bytes": "",
+              "eta_seconds": "",
+              "num_matches": "",
+              "progress": "",
+              "notification_email": "",
+              "creation_date": "",
+              "start_date": ""
+            },
+            "type": "",
+            "id": "",
+            "links": {
+              "self": ""
+            }
+          }
+        ],
+        "links": {
+          "self": ""
+        }
+      }
     },
     {
       "operation": "get_retrohunt_job_details",
@@ -876,7 +1429,27 @@
           "tooltip": "Specify the ID of the Retrohunt job for which you want to retrieve details from VirusTotal."
         }
       ],
-      "output_schema": {}
+      "output_schema": {
+        "data": {
+          "attributes": {
+            "status": "",
+            "finish_date": "",
+            "rules": "",
+            "num_matches_outside_time_range": "",
+            "scanned_bytes": "",
+            "creation_date": "",
+            "num_matches": "",
+            "progress": "",
+            "notification_email": "",
+            "corpus": ""
+          },
+          "type": "",
+          "id": "",
+          "links": {
+            "self": ""
+          }
+        }
+      }
     },
     {
       "operation": "get_retrohunt_job_matching_files",
@@ -886,6 +1459,16 @@
       "annotation": "get_retrohunt_job_matching_files",
       "enabled": true,
       "parameters": [
+        {
+          "title": "job ID",
+          "description": "Specify the ID of the Retrohunt job for which you want to retrieve details from VirusTotal.",
+          "required": true,
+          "editable": true,
+          "visible": true,
+          "type": "text",
+          "name": "id",
+          "tooltip": "Specify the ID of the Retrohunt job for which you want to retrieve details from VirusTotal."
+        },
         {
           "title": "Limit",
           "name": "limit",
@@ -908,7 +1491,177 @@
           "tooltip": "(Optional) The 'Cursor' parameter is used only if a previous operation had returned a partial result. If a previous response contains a cursor element, then the value of the cursor element includes a cursor parameter that specifies a starting point to use for subsequent calls."
         }
       ],
-      "output_schema": {}
+      "output_schema": {
+        "meta": {
+          "count": "",
+          "cursor": ""
+        },
+        "data": [
+          {
+            "attributes": {
+              "type_description": "",
+              "tlsh": "",
+              "vhash": "",
+              "exiftool": {
+                "ZipRequiredVersion": "",
+                "MIMEType": "",
+                "ZipCRC": "",
+                "FileType": "",
+                "ZipCompression": "",
+                "ZipUncompressedSize": "",
+                "ZipCompressedSize": "",
+                "FileTypeExtension": "",
+                "ZipFileName": "",
+                "ZipBitFlag": "",
+                "ZipModifyDate": ""
+              },
+              "trid": [
+                {
+                  "file_type": "",
+                  "probability": ""
+                }
+              ],
+              "names": [],
+              "last_modification_date": "",
+              "type_tag": "",
+              "times_submitted": "",
+              "total_votes": {
+                "harmless": "",
+                "malicious": ""
+              },
+              "size": "",
+              "type_extension": "",
+              "last_submission_date": "",
+              "last_analysis_results": {},
+              "downloadable": "",
+              "sha256": "",
+              "tags": [
+              ],
+              "last_analysis_date": "",
+              "unique_sources": "",
+              "first_submission_date": "",
+              "sha1": "",
+              "ssdeep": "",
+              "bundle_info": {
+                "highest_datetime": "",
+                "lowest_datetime": "",
+                "num_children": "",
+                "extensions": {
+                  "xml": "",
+                  "dex": "",
+                  "so": "",
+                  "png": ""
+                },
+                "file_types": {
+                  "XML": "",
+                  "DEX": "",
+                  "ELF": "",
+                  "PNG": "",
+                  "unknown": ""
+                },
+                "type": "",
+                "uncompressed_size": ""
+              },
+              "md5": "",
+              "androguard": {
+                "VTAndroidInfo": "",
+                "Libraries": [
+                ],
+                "AndroidApplicationError": "",
+                "MinSdkVersion": "",
+                "AndroguardVersion": "",
+                "Activities": [
+                ],
+                "certificate": {
+                  "Subject": {
+                    "DN": "",
+                    "C": "",
+                    "CN": "",
+                    "L": "",
+                    "O": "",
+                    "ST": "",
+                    "OU": ""
+                  },
+                  "validto": "",
+                  "serialnumber": "",
+                  "thumbprint": "",
+                  "validfrom": "",
+                  "Issuer": {
+                    "DN": "",
+                    "C": "",
+                    "CN": "",
+                    "L": "",
+                    "O": "",
+                    "ST": "",
+                    "OU": ""
+                  }
+                },
+                "AndroidApplication": "",
+                "RiskIndicator": {
+                  "APK": {
+                    "DEX": "",
+                    "SHARED LIBRARIES": ""
+                  },
+                  "PERM": {
+                    "INSTANT": "",
+                    "PRIVACY": "",
+                    "DANGEROUS": "",
+                    "NORMAL": "",
+                    "INTERNET": "",
+                    "GPS": ""
+                  }
+                },
+                "Services": [],
+                "AndroidVersionCode": "",
+                "main_activity": "",
+                "Package": "",
+                "intent_filters": {
+                  "Services": {},
+                  "Activities": {},
+                  "Receivers": {}
+                },
+                "AndroidVersionName": "",
+                "TargetSdkVersion": "",
+                "AndroidApplicationInfo": "",
+                "Providers": [],
+                "permission_details": {},
+                "Receivers": [],
+                "StringsInformation": []
+              },
+              "magic": "",
+              "main_icon": {
+                "raw_md5": "",
+                "dhash": ""
+              },
+              "last_analysis_stats": {
+                "harmless": "",
+                "type-unsupported": "",
+                "suspicious": "",
+                "confirmed-timeout": "",
+                "timeout": "",
+                "failure": "",
+                "malicious": "",
+                "undetected": ""
+              },
+              "meaningful_name": "",
+              "reputation": ""
+            },
+            "type": "",
+            "id": "",
+            "links": {
+              "self": ""
+            },
+            "context_attributes": {
+              "rule_name": "",
+              "match_in_subfile": ""
+            }
+          }
+        ],
+        "links": {
+          "self": "",
+          "next": ""
+        }
+      }
     },
     {
       "operation": "delete_retrohunt_job",
@@ -929,7 +1682,9 @@
           "tooltip": "Specify the ID of the Retrohunt job that you want to delete from VirusTotal."
         }
       ],
-      "output_schema": {}
+      "output_schema": {
+        "message": ""
+      }
     }
   ]
 }
