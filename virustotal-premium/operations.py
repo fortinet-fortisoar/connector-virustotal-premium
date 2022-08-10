@@ -10,7 +10,7 @@ from connectors.core.connector import ConnectorError, get_logger
 from connectors.cyops_utilities.builtins import upload_file_to_cyops
 
 MACRO_LIST = ["IP_Enrichment_Playbooks_IRIs", "URL_Enrichment_Playbooks_IRIs", "Domain_Enrichment_Playbooks_IRIs",
-              "FileHash_Enrichment_Playbooks_IRIs", "File_Enrichment_Playbooks_IRIs"]
+              "FileHash_Enrichment_Playbooks_IRIs"]
 
 logger = get_logger('virustotal-premium')
 

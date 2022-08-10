@@ -41,5 +41,8 @@ class VirusTotalPremium(Connector):
     def on_activate(self, config):
         self.del_micro(config)
 
-    def on_add_config(self, config):
+    def on_add_config(self, config, active):
+        self.del_micro(config)
+
+    def on_delete_config(self, config):
         self.del_micro(config)
