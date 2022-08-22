@@ -1425,7 +1425,7 @@
             "style_colors"
           ],
           "synchronous": false,
-          "lastModifyDate": 1660126424,
+          "lastModifyDate": 1661159653,
           "collection": "/api/3/workflow_collections/3ca4d647-7488-432f-b44c-efebdbd3d329",
           "versions": [],
           "triggerStep": "/api/3/workflow_steps/e370ad10-d095-4f5c-a809-33b8cd080583",
@@ -1506,7 +1506,7 @@
               },
               "status": null,
               "top": "570",
-              "left": "475",
+              "left": "125",
               "stepType": "/api/3/workflow_step_types/0109f35d-090b-4a2b-bd8a-94cbc3508562",
               "group": null,
               "uuid": "10e2ad0a-1da3-4971-af85-0a83d409f418"
@@ -1526,8 +1526,8 @@
                 "step_variables": []
               },
               "status": null,
-              "top": "1110",
-              "left": "125",
+              "top": "1245",
+              "left": "475",
               "stepType": "/api/3/workflow_step_types/0109f35d-090b-4a2b-bd8a-94cbc3508562",
               "group": null,
               "uuid": "16b9620d-e87e-4903-ae00-6c390178553b"
@@ -1545,11 +1545,37 @@
                 "enrichment_summary": "{{vars.steps.Compute_VT_Summary.data['formatted_string']}}"
               },
               "status": null,
-              "top": "1380",
-              "left": "125",
+              "top": "1515",
+              "left": "475",
               "stepType": "/api/3/workflow_step_types/04d0cf46-b6a8-42c4-8683-60a7eaa69e8f",
               "group": null,
               "uuid": "5251dfe0-86a8-48be-8f5f-38b65905c4a5"
+            },
+            {
+              "@type": "WorkflowStep",
+              "name": "Compute Tags Info from VT",
+              "description": null,
+              "arguments": {
+                "when": "{{(vars.tags != None and vars.tags)}}",
+                "params": {
+                  "data": "{{vars.tags}}",
+                  "display": "Horizontal",
+                  "styling": true,
+                  "row_fields": "['sandbox_name','category','confidence']",
+                  "table_style": "{ 'width':'auto','font':'10px;'}"
+                },
+                "version": "3.2.1",
+                "connector": "cyops_utilities",
+                "operation": "json_to_html",
+                "operationTitle": "Utils: Convert JSON into a HTML Table",
+                "step_variables": []
+              },
+              "status": null,
+              "top": "1110",
+              "left": "475",
+              "stepType": "/api/3/workflow_step_types/0109f35d-090b-4a2b-bd8a-94cbc3508562",
+              "group": null,
+              "uuid": "6ce1a2e8-aa4f-4564-a32b-a05d03a129bb"
             },
             {
               "@type": "WorkflowStep",
@@ -1560,7 +1586,7 @@
               },
               "status": null,
               "top": "840",
-              "left": "125",
+              "left": "475",
               "stepType": "/api/3/workflow_step_types/04d0cf46-b6a8-42c4-8683-60a7eaa69e8f",
               "group": null,
               "uuid": "7f793379-6272-406d-8498-c416c707a698"
@@ -1570,6 +1596,7 @@
               "name": "Configuration",
               "description": null,
               "arguments": {
+                "tags": "{}",
                 "useMockOutput": "{{globalVars.Demo_mode}}",
                 "indicator_value": "{{vars.input.params['indicator_value']}}"
               },
@@ -1601,7 +1628,7 @@
               },
               "status": null,
               "top": "705",
-              "left": "125",
+              "left": "475",
               "stepType": "/api/3/workflow_step_types/0109f35d-090b-4a2b-bd8a-94cbc3508562",
               "group": null,
               "uuid": "97f945f0-7b8b-4c1e-b14a-e197cc6ffe6f"
@@ -1626,7 +1653,7 @@
               },
               "status": null,
               "top": "570",
-              "left": "125",
+              "left": "475",
               "stepType": "/api/3/workflow_step_types/0109f35d-090b-4a2b-bd8a-94cbc3508562",
               "group": null,
               "uuid": "a4c9c420-4503-4d98-ba1b-4745cbdd5038"
@@ -1655,7 +1682,7 @@
               "description": null,
               "arguments": {
                 "params": {
-                  "value": "<table class=\"no-border\">\n    <tr>\n        <th colspan=\"2\" class=\"no-background padding-0\">\n            <div class=\"font-size-11 ng-binding padding-bottom-sm\">\n                <h4 style=\"color: orange;\"\n                    class=\"body-default-bgcolor margin-bottom-0 padding-bottom-md padding-left-md padding-top-md text-align-left\">\n                    VirusTotal Detection\n                    Summary</h4>\n            </div>\n        </th>\n    </tr>\n    <tr class=\"solid-border\">\n        <td>\n            <table class=\"no-border\">\n                <tr>\n                    <td>\n                        <html>\n                        <head>\n                            <title>Title of the document</title>\n                            <style>\n                                span.circle {\n                                    border-radius: 50%;\n                                    -moz-border-radius: 50%;\n                                    -webkit-border-radius: 50%;\n                                    display: inline-block;\n                                    font-weight: bold;\n                                    line-height: 100px;\n                                    margin-right: 5px;\n                                    text-align: center;\n                                    width: 100px;\n                                    font-size: 15px;\n                                }\n                            </style>\n                        </head>\n                        <body><span class=\"circle body-default-bgcolor solid-border\"><i\n                                    style=\"font-size:25px;color:{{vars.input.params.style_colors.Malicious}}\">\n                                    {{vars.last_analysis_stats.malicious}}</i>/{{(vars.last_analysis_stats.values() |\n                                list ) [0:6] | sum}}</span>\n                        </body></html>\n                    </td>\n                    <td>\n                        <div small class=\"control-label\">Malicious</div>\n                        <div class=\"card-container-body margin-left-0\" style=\"width: 100px;\">\n                            <div class=\"body-default-bgcolor card-number font-weight-normal padding-5px padding-left-md font-size-25\"\n                                style=\"border-left: 5px solid {{vars.input.params.style_colors.Malicious}};\">\n                                {{vars.last_analysis_stats.malicious}}</div>\n                        </div>\n                    </td>\n                    <td>\n                        <div small class=\"control-label\">Suspicious</div>\n                        <div class=\"card-container-body margin-left-0\" style=\"width: 100px;\">\n                            <div class=\"body-default-bgcolor card-number font-weight-normal padding-5px padding-left-md font-size-25\"\n                                style=\"border-left: 5px solid {{vars.input.params.style_colors.Suspicious}};\">\n                                {{vars.last_analysis_stats.suspicious}}</div>\n                        </div>\n                    </td>\n                    <td>\n                        <div small class=\"control-label\">Harmless</div>\n                        <div class=\"card-container-body margin-left-0\" style=\"width: 100px;\">\n                            <div class=\"body-default-bgcolor card-number font-weight-normal padding-5px padding-left-md font-size-25\"\n                                style=\"border-left: 5px solid {{vars.input.params.style_colors['No Reputation Available']}};\">\n                                {{vars.last_analysis_stats.harmless}}</div>\n                        </div>\n                    </td>\n                </tr>\n            </table>\n        </td>\n        <td style=\"vertical-align:top; border-color: #04080c;\">\n            <table class=\"margin-10 no-border body-default-bgcolor\">\n                <tr>\n                    <div class=\"margin-top-md control-label\">\n                        <i class=\"fa fa-group margin-left-md margin-right-sm\"></i> Community Votes\n                    </div>\n                    <td style=\"width: 100px;text-align: center;\" class=\"body-default-bgcolor\">\n                        <i class=\"\tfa fa-thumbs-o-up\"\n                            style=\"font-size:25px;color:{{vars.input.params.style_colors['No Reputation Available']}};\"></i>\n                        <div class=\"font-size-11 ng-binding\">Harmless {{vars.community_votes.harmless}}</div>\n                    </td>\n                    <td style=\"width: 100px;text-align: center;\" class=\"body-default-bgcolor\">\n                        <i class=\"fa fa-thumbs-o-down\"\n                            style=\"font-size:25px;color:{{vars.input.params.style_colors.Malicious}};\"></i>\n                        <div class=\"font-size-11 ng-binding\">Malicious {{vars.community_votes.malicious}}</div>\n                    </td>\n                </tr>\n            </table>\n        </td>\n    </tr>\n</table>\n<table class=\"margin-top-sm  no-border\">\n    <tr class=\"solid-border\">\n        <td style=\"vertical-align: top;\">\n            <div class=\"half-width\" style=\"vertical-align: top;\"></div>\n    <div class=\"control-label padding-left-sm padding-bottom-sm\">Additional Summary:</div>\n    <div>{{vars.steps.VT_Additional_Summary.data['formatted_string']}}</div>\n        </td>\n    </tr>\n</table>"
+                  "value": "<table class=\"no-border\">\n    <tr>\n        <th colspan=\"2\" class=\"no-background padding-0\">\n            <div class=\"font-size-11 ng-binding padding-bottom-sm\">\n                <h4 style=\"color: orange;\"\n                    class=\"body-default-bgcolor margin-bottom-0 padding-bottom-md padding-left-md padding-top-md text-align-left\">\n                    VirusTotal Premium Detection\n                    Summary</h4>\n            </div>\n        </th>\n    </tr>\n    <tr class=\"solid-border\">\n        <td>\n            <table class=\"no-border\">\n                <tr>\n                    <td>\n                        <html>\n                        <head>\n                            <title>Title of the document</title>\n                            <style>\n                                span.circle {\n                                    border-radius: 50%;\n                                    -moz-border-radius: 50%;\n                                    -webkit-border-radius: 50%;\n                                    display: inline-block;\n                                    font-weight: bold;\n                                    line-height: 100px;\n                                    margin-right: 5px;\n                                    text-align: center;\n                                    width: 100px;\n                                    font-size: 15px;\n                                }\n                            </style>\n                        </head>\n                        <body><span class=\"circle body-default-bgcolor solid-border\"><i\n                                    style=\"font-size:25px;color:{{vars.input.params.style_colors.Malicious}}\">\n                                    {{vars.last_analysis_stats.malicious}}</i>/{{(vars.last_analysis_stats.values() |\n                                list ) [0:6] | sum}}</span>\n                        </body></html>\n                    </td>\n                    <td>\n                        <div small class=\"control-label\">Malicious</div>\n                        <div class=\"card-container-body margin-left-0\" style=\"width: 100px;\">\n                            <div class=\"body-default-bgcolor card-number font-weight-normal padding-5px padding-left-md font-size-25\"\n                                style=\"border-left: 5px solid {{vars.input.params.style_colors.Malicious}};\">\n                                {{vars.last_analysis_stats.malicious}}</div>\n                        </div>\n                    </td>\n                    <td>\n                        <div small class=\"control-label\">Suspicious</div>\n                        <div class=\"card-container-body margin-left-0\" style=\"width: 100px;\">\n                            <div class=\"body-default-bgcolor card-number font-weight-normal padding-5px padding-left-md font-size-25\"\n                                style=\"border-left: 5px solid {{vars.input.params.style_colors.Suspicious}};\">\n                                {{vars.last_analysis_stats.suspicious}}</div>\n                        </div>\n                    </td>\n                    <td>\n                        <div small class=\"control-label\">Harmless</div>\n                        <div class=\"card-container-body margin-left-0\" style=\"width: 100px;\">\n                            <div class=\"body-default-bgcolor card-number font-weight-normal padding-5px padding-left-md font-size-25\"\n                                style=\"border-left: 5px solid {{vars.input.params.style_colors['No Reputation Available']}};\">\n                                {{vars.last_analysis_stats.harmless}}</div>\n                        </div>\n                    </td>\n                </tr>\n            </table>\n        </td>\n        <td style=\"vertical-align:top; border-color: #04080c;\">\n            <table class=\"margin-10 no-border body-default-bgcolor\">\n                <tr>\n                    <div class=\"margin-top-md control-label\">\n                        <i class=\"fa fa-group margin-left-md margin-right-sm\"></i> Community Votes\n                    </div>\n                    <td style=\"width: 100px;text-align: center;\" class=\"body-default-bgcolor\">\n                        <i class=\"\tfa fa-thumbs-o-up\"\n                            style=\"font-size:25px;color:{{vars.input.params.style_colors['No Reputation Available']}};\"></i>\n                        <div class=\"font-size-11 ng-binding\">Harmless {{vars.community_votes.harmless}}</div>\n                    </td>\n                    <td style=\"width: 100px;text-align: center;\" class=\"body-default-bgcolor\">\n                        <i class=\"fa fa-thumbs-o-down\"\n                            style=\"font-size:25px;color:{{vars.input.params.style_colors.Malicious}};\"></i>\n                        <div class=\"font-size-11 ng-binding\">Malicious {{vars.community_votes.malicious}}</div>\n                    </td>\n                </tr>\n            </table>\n        </td>\n    </tr>\n</table>\n<table class=\"margin-top-sm  no-border\">\n    <tr class=\"solid-border\">\n        <td style=\"vertical-align: top;\">\n            <div class=\"half-width\" style=\"vertical-align: top;\"></div>\n    <div class=\"control-label padding-left-sm padding-bottom-sm\">Additional Summary:</div>\n    <div>{{vars.steps.VT_Additional_Summary.data['formatted_string']}}</div>\n        </td>\n    </tr>\n</table>"
                 },
                 "version": "3.2.1",
                 "connector": "cyops_utilities",
@@ -1664,8 +1691,8 @@
                 "step_variables": []
               },
               "status": null,
-              "top": "1245",
-              "left": "125",
+              "top": "1380",
+              "left": "475",
               "stepType": "/api/3/workflow_step_types/0109f35d-090b-4a2b-bd8a-94cbc3508562",
               "group": null,
               "uuid": "f8ff69fe-d3af-4aaf-b59e-214bd29efd8d"
@@ -1691,7 +1718,7 @@
               },
               "status": null,
               "top": "975",
-              "left": "125",
+              "left": "475",
               "stepType": "/api/3/workflow_step_types/0109f35d-090b-4a2b-bd8a-94cbc3508562",
               "group": null,
               "uuid": "fa2454df-db5d-4d85-b14e-fe02d49c6ded"
@@ -1715,15 +1742,6 @@
               "label": null,
               "isExecuted": false,
               "uuid": "5766bbdc-fbb5-46ef-9af6-501e6e7fad46"
-            },
-            {
-              "@type": "WorkflowRoute",
-              "name": "Compute Sandbox Verdict from VT -> VT Additional Summary",
-              "targetStep": "/api/3/workflow_steps/16b9620d-e87e-4903-ae00-6c390178553b",
-              "sourceStep": "/api/3/workflow_steps/fa2454df-db5d-4d85-b14e-fe02d49c6ded",
-              "label": null,
-              "isExecuted": false,
-              "uuid": "5f2045fb-df31-4d58-80d9-bc63727c8802"
             },
             {
               "@type": "WorkflowRoute",
@@ -1796,6 +1814,24 @@
               "label": "No",
               "isExecuted": false,
               "uuid": "7ba73e07-c8f3-4f7b-814a-c07c407f7ea7"
+            },
+            {
+              "@type": "WorkflowRoute",
+              "name": "Compute Sandbox Verdict from VT -> Compute Tags Info from VT",
+              "targetStep": "/api/3/workflow_steps/6ce1a2e8-aa4f-4564-a32b-a05d03a129bb",
+              "sourceStep": "/api/3/workflow_steps/fa2454df-db5d-4d85-b14e-fe02d49c6ded",
+              "label": null,
+              "isExecuted": false,
+              "uuid": "c8b58c17-5ef5-4553-8712-fd40664de2a0"
+            },
+            {
+              "@type": "WorkflowRoute",
+              "name": "Compute Tags Info from VT -> VT Additional Summary",
+              "targetStep": "/api/3/workflow_steps/16b9620d-e87e-4903-ae00-6c390178553b",
+              "sourceStep": "/api/3/workflow_steps/6ce1a2e8-aa4f-4564-a32b-a05d03a129bb",
+              "label": null,
+              "isExecuted": false,
+              "uuid": "ab4f624b-7ebe-4b82-928b-04605c3694cc"
             }
           ],
           "groups": [],
@@ -2112,7 +2148,7 @@
             "style_colors"
           ],
           "synchronous": false,
-          "lastModifyDate": 1660117286,
+          "lastModifyDate": 1661163238,
           "collection": "/api/3/workflow_collections/3ca4d647-7488-432f-b44c-efebdbd3d329",
           "versions": [],
           "triggerStep": "/api/3/workflow_steps/ea8fd735-13ca-46f3-aa42-4293a88da7b4",
@@ -2142,7 +2178,7 @@
               "description": null,
               "arguments": {
                 "params": {
-                  "value": "<table style=\"font-size:11px; overflow:unset !important; white-space: unset !important;\" class=\"no-border cs-multi-data-table\">\n    <div>{% if (vars.categories | length > 0) %}</div>\n    <tr>\n        <td style=\"vertical-align: top;\">\n            <div class=\"control-label padding-left-sm padding-bottom-sm\">Security Vendor Scanning Results:</div>\n            <div>{{vars.steps.Compute_VT_Categories.data}}</div>\n        </td>\n    </tr>\n    <div>{% endif %}</div>\n    <div>{% if (vars.tags | length > 0) %}</div>\n    <tr>\n        <td style=\"vertical-align: top;\">\n            <div class=\"control-label padding-left-sm padding-bottom-sm\">Virustotal Tags:</div>\n            <div>{{vars.steps.Compute_VT_Analysis.data['formatted_string']}}</div>\n        </td>\n    </tr>\n    <div>{% endif %}</div>\n</table>"
+                  "value": "<table style=\"font-size:11px; overflow:unset !important; white-space: unset !important;\" class=\"no-border cs-multi-data-table\">\n    <div>{% if (vars.categories | length > 0) %}</div>\n    <tr>\n        <td style=\"vertical-align: top;\">\n            <div class=\"control-label padding-left-sm padding-bottom-sm\">Security Vendor Scanning Results:</div>\n            <div>{{vars.steps.Compute_VT_Categories.data}}</div>\n        </td>\n    </tr>\n    <div>{% endif %}</div>\n    <div>{% if (vars.tags | length > 0) %}</div>\n    <tr>\n        <td style=\"vertical-align: top;\">\n            <div class=\"control-label padding-left-sm padding-bottom-sm\">Virustotal Premium Tags:</div>\n            <div>{{vars.steps.Compute_VT_Analysis.data['formatted_string']}}</div>\n        </td>\n    </tr>\n    <div>{% endif %}</div>\n</table>"
                 },
                 "version": "3.2.1",
                 "connector": "cyops_utilities",
@@ -2182,7 +2218,7 @@
               "description": null,
               "arguments": {
                 "params": {
-                  "value": "<table class=\"no-border\">\n    <tr>\n        <th colspan=\"2\" class=\"no-background padding-0\">\n            <div class=\"font-size-11 ng-binding padding-bottom-sm\">\n                <h4 style=\"color: orange;\"\n                    class=\"body-default-bgcolor margin-bottom-0 padding-bottom-md padding-left-md padding-top-md text-align-left\">\n                    VirusTotal Detection\n                    Summary</h4>\n            </div>\n        </th>\n    </tr>\n    <tr class=\"solid-border\">\n        <td>\n            <table class=\"no-border\">\n                <tr>\n                    <td>\n                        <html>\n                        <head>\n                            <title>Title of the document</title>\n                            <style>\n                                span.circle {\n                                    border-radius: 50%;\n                                    -moz-border-radius: 50%;\n                                    -webkit-border-radius: 50%;\n                                    display: inline-block;\n                                    font-weight: bold;\n                                    line-height: 100px;\n                                    margin-right: 5px;\n                                    text-align: center;\n                                    width: 100px;\n                                    font-size: 15px;\n                                }\n                            </style>\n                        </head>\n                        <body><span class=\"circle body-default-bgcolor solid-border\"><i style=\"font-size:25px;color:{{vars.input.params.style_colors.Malicious}}\">\n                                    {{vars.last_analysis_stats.malicious}}</i>/{{vars.last_analysis_stats.values() |\n                                list | sum}}</span>\n                        </body>\n                        </html>\n                    </td>\n                    <td>\n                        <div small class=\"control-label\">Malicious</div>\n                        <div class=\"card-container-body margin-left-0\" style=\"width: 100px;\">\n                            <div class=\"body-default-bgcolor card-number font-weight-normal padding-5px padding-left-md font-size-25\"\n                                style=\"border-left: 5px solid {{vars.input.params.style_colors.Malicious}};\">\n                                {{vars.last_analysis_stats.malicious}}</div>\n                        </div>\n                    </td>\n                    <td>\n                        <div small class=\"control-label\">Suspicious</div>\n                        <div class=\"card-container-body margin-left-0\" style=\"width: 100px;\">\n                            <div class=\"body-default-bgcolor card-number font-weight-normal padding-5px padding-left-md font-size-25\"\n                                style=\"border-left: 5px solid {{vars.input.params.style_colors.Suspicious}};\">\n                                {{vars.last_analysis_stats.suspicious}}</div>\n                        </div>\n                    </td>\n                    <td>\n                        <div small class=\"control-label\">Harmless</div>\n                        <div class=\"card-container-body margin-left-0\" style=\"width: 100px;\">\n                            <div class=\"body-default-bgcolor card-number font-weight-normal padding-5px padding-left-md font-size-25\"\n                                style=\"border-left: 5px solid {{vars.input.params.style_colors['No Reputation Available']}};\">\n                                {{vars.last_analysis_stats.harmless}}</div>\n                        </div>\n                    </td>\n                </tr>\n            </table>\n        </td>\n        <td style=\"vertical-align:top; border-color: #04080c;\">\n            <table class=\"margin-10 no-border body-default-bgcolor\">\n                <tr>\n                    <div class=\"margin-top-md control-label\">\n                        <i class=\"fa fa-group margin-left-md margin-right-sm\"></i> Community Votes\n                    </div>\n                    <td style=\"width: 100px;text-align: center;\" class=\"body-default-bgcolor\">\n                        <i class=\"\tfa fa-thumbs-o-up\" style=\"font-size:25px;color:{{vars.input.params.style_colors['No Reputation Available']}};\"></i>\n                        <div class=\"font-size-11 ng-binding\">Harmless {{vars.community_votes.harmless}}</div>\n                    </td>\n                    <td style=\"width: 100px;text-align: center;\" class=\"body-default-bgcolor\">\n                        <i class=\"fa fa-thumbs-o-down\" style=\"font-size:25px;color:{{vars.input.params.style_colors.Malicious}};\"></i>\n                        <div class=\"font-size-11 ng-binding\">Malicious {{vars.community_votes.malicious}}</div>\n                    </td>\n                </tr>\n            </table>\n        </td>\n    </tr>\n</table>\n<table class=\"margin-top-sm  no-border\">\n    <tr class=\"solid-border\">\n        <td style=\"vertical-align: top;\">\n            <div class=\"half-width\" style=\"vertical-align: top;\"></div>\n    <div class=\"control-label padding-left-sm padding-bottom-sm\">Additional Summary:</div>\n    <div>{{vars.steps.VT_Additional_Summary.data['formatted_string']}}</div>\n        </td>\n    </tr>\n</table>"
+                  "value": "<table class=\"no-border\">\n    <tr>\n        <th colspan=\"2\" class=\"no-background padding-0\">\n            <div class=\"font-size-11 ng-binding padding-bottom-sm\">\n                <h4 style=\"color: orange;\"\n                    class=\"body-default-bgcolor margin-bottom-0 padding-bottom-md padding-left-md padding-top-md text-align-left\">\n                    VirusTotal Premium Detection\n                    Summary</h4>\n            </div>\n        </th>\n    </tr>\n    <tr class=\"solid-border\">\n        <td>\n            <table class=\"no-border\">\n                <tr>\n                    <td>\n                        <html>\n                        <head>\n                            <title>Title of the document</title>\n                            <style>\n                                span.circle {\n                                    border-radius: 50%;\n                                    -moz-border-radius: 50%;\n                                    -webkit-border-radius: 50%;\n                                    display: inline-block;\n                                    font-weight: bold;\n                                    line-height: 100px;\n                                    margin-right: 5px;\n                                    text-align: center;\n                                    width: 100px;\n                                    font-size: 15px;\n                                }\n                            </style>\n                        </head>\n                        <body><span class=\"circle body-default-bgcolor solid-border\"><i style=\"font-size:25px;color:{{vars.input.params.style_colors.Malicious}}\">\n                                    {{vars.last_analysis_stats.malicious}}</i>/{{vars.last_analysis_stats.values() |\n                                list | sum}}</span>\n                        </body>\n                        </html>\n                    </td>\n                    <td>\n                        <div small class=\"control-label\">Malicious</div>\n                        <div class=\"card-container-body margin-left-0\" style=\"width: 100px;\">\n                            <div class=\"body-default-bgcolor card-number font-weight-normal padding-5px padding-left-md font-size-25\"\n                                style=\"border-left: 5px solid {{vars.input.params.style_colors.Malicious}};\">\n                                {{vars.last_analysis_stats.malicious}}</div>\n                        </div>\n                    </td>\n                    <td>\n                        <div small class=\"control-label\">Suspicious</div>\n                        <div class=\"card-container-body margin-left-0\" style=\"width: 100px;\">\n                            <div class=\"body-default-bgcolor card-number font-weight-normal padding-5px padding-left-md font-size-25\"\n                                style=\"border-left: 5px solid {{vars.input.params.style_colors.Suspicious}};\">\n                                {{vars.last_analysis_stats.suspicious}}</div>\n                        </div>\n                    </td>\n                    <td>\n                        <div small class=\"control-label\">Harmless</div>\n                        <div class=\"card-container-body margin-left-0\" style=\"width: 100px;\">\n                            <div class=\"body-default-bgcolor card-number font-weight-normal padding-5px padding-left-md font-size-25\"\n                                style=\"border-left: 5px solid {{vars.input.params.style_colors['No Reputation Available']}};\">\n                                {{vars.last_analysis_stats.harmless}}</div>\n                        </div>\n                    </td>\n                </tr>\n            </table>\n        </td>\n        <td style=\"vertical-align:top; border-color: #04080c;\">\n            <table class=\"margin-10 no-border body-default-bgcolor\">\n                <tr>\n                    <div class=\"margin-top-md control-label\">\n                        <i class=\"fa fa-group margin-left-md margin-right-sm\"></i> Community Votes\n                    </div>\n                    <td style=\"width: 100px;text-align: center;\" class=\"body-default-bgcolor\">\n                        <i class=\"\tfa fa-thumbs-o-up\" style=\"font-size:25px;color:{{vars.input.params.style_colors['No Reputation Available']}};\"></i>\n                        <div class=\"font-size-11 ng-binding\">Harmless {{vars.community_votes.harmless}}</div>\n                    </td>\n                    <td style=\"width: 100px;text-align: center;\" class=\"body-default-bgcolor\">\n                        <i class=\"fa fa-thumbs-o-down\" style=\"font-size:25px;color:{{vars.input.params.style_colors.Malicious}};\"></i>\n                        <div class=\"font-size-11 ng-binding\">Malicious {{vars.community_votes.malicious}}</div>\n                    </td>\n                </tr>\n            </table>\n        </td>\n    </tr>\n</table>\n<table class=\"margin-top-sm  no-border\">\n    <tr class=\"solid-border\">\n        <td style=\"vertical-align: top;\">\n            <div class=\"half-width\" style=\"vertical-align: top;\"></div>\n    <div class=\"control-label padding-left-sm padding-bottom-sm\">Additional Summary:</div>\n    <div>{{vars.steps.VT_Additional_Summary.data['formatted_string']}}</div>\n        </td>\n    </tr>\n</table>"
                 },
                 "version": "3.2.1",
                 "connector": "cyops_utilities",
@@ -2232,7 +2268,7 @@
                   {
                     "option": "Yes",
                     "step_iri": "/api/3/workflow_steps/e0b033f0-6801-4f7a-acf5-da3ca918bc12",
-                    "condition": "{{ vars.steps.Get_URL_Reputation.status == \"success\" or vars.useMockOutput }}",
+                    "condition": "{{ vars.steps.Get_URL_Reputation.status == \"Success\" or vars.useMockOutput }}",
                     "step_name": "Compute VT Analysis"
                   },
                   {
@@ -3018,7 +3054,7 @@
             "style_colors"
           ],
           "synchronous": false,
-          "lastModifyDate": 1661150530,
+          "lastModifyDate": 1661151548,
           "collection": "/api/3/workflow_collections/3ca4d647-7488-432f-b44c-efebdbd3d329",
           "versions": [],
           "triggerStep": "/api/3/workflow_steps/8bc8b9d6-2e47-41c6-bb71-8c8d781a3377",
@@ -3198,7 +3234,7 @@
               "description": null,
               "arguments": {
                 "params": {
-                  "value": "<table class=\"no-border\">\n    <tr>\n        <th colspan=\"2\" class=\"no-background padding-0\">\n            <div class=\"font-size-11 ng-binding padding-bottom-sm\">\n                <h4 style=\"color: orange;\"\n                    class=\"body-default-bgcolor margin-bottom-0 padding-bottom-md padding-left-md padding-top-md text-align-left\">\n                    VirusTotal Detection Summary</h4>\n            </div>\n        </th>\n    </tr>\n    <tr class=\"solid-border\">\n        <td>\n            <table class=\"no-border\">\n                <tr>\n                    <td>\n                        <html><head>\n                            <title>Title of the document</title>\n                            <style>\n                                span.circle {\n                                    border-radius: 50%;\n                                    -moz-border-radius: 50%;\n                                    -webkit-border-radius: 50%;\n                                    display: inline-block;\n                                    font-weight: bold;\n                                    line-height: 100px;\n                                    margin-right: 5px;\n                                    text-align: center;\n                                    width: 100px;\n                                    font-size: 15px;\n                                }\n                            </style>\n                        </head><body><span class=\"circle body-default-bgcolor solid-border\"><i style=\"font-size:25px;color:{{vars.input.params.style_colors.Malicious}}\">\n                                    {{vars.last_analysis_stats.malicious}}</i>/{{vars.last_analysis_stats.values() |\n                                list | sum}}</span>\n                        </body></html>\n                    </td><td>\n                        <div small class=\"control-label\">Malicious</div>\n                        <div class=\"card-container-body margin-left-0\" style=\"width: 100px;\">\n                            <div class=\"body-default-bgcolor card-number font-weight-normal padding-5px padding-left-md font-size-25\"\n                                style=\"border-left: 5px solid {{vars.input.params.style_colors.Malicious}};\">\n                                {{vars.last_analysis_stats.malicious}}</div>\n                        </div>\n                    </td>\n                    <td>\n                        <div small class=\"control-label\">Suspicious</div>\n                        <div class=\"card-container-body margin-left-0\" style=\"width: 100px;\">\n                            <div class=\"body-default-bgcolor card-number font-weight-normal padding-5px padding-left-md font-size-25\"\n                                style=\"border-left: 5px solid {{vars.input.params.style_colors.Suspicious}};\">\n                                {{vars.last_analysis_stats.suspicious}}</div>\n                        </div>\n                    </td>\n                    <td>\n                        <div small class=\"control-label\">Harmless</div>\n                        <div class=\"card-container-body margin-left-0\" style=\"width: 100px;\">\n                            <div class=\"body-default-bgcolor card-number font-weight-normal padding-5px padding-left-md font-size-25\"\n                                style=\"border-left: 5px solid {{vars.input.params.style_colors['No Reputation Available']}};\">\n                                {{vars.last_analysis_stats.harmless}}</div>\n                        </div>\n                    </td>\n                </tr>\n            </table>\n        </td>\n        <td style=\"vertical-align:top; border-color: #04080c;\">\n            <table class=\"margin-10 no-border body-default-bgcolor\">\n                <tr>\n                    <div class=\"margin-top-md control-label\">\n                        <i class=\"fa fa-group margin-left-md margin-right-sm\"></i> Community Votes\n                    </div>\n                    <td style=\"width: 100px;text-align: center;\" class=\"body-default-bgcolor\">\n                        <i class=\"\tfa fa-thumbs-o-up\"\n                            style=\"font-size:25px;color:{{vars.input.params.style_colors['No Reputation Available']}};\"></i>\n                        <div class=\"font-size-11 ng-binding\">Harmless {{vars.community_votes.harmless}}</div>\n                    </td>\n                    <td style=\"width: 100px;text-align: center;\" class=\"body-default-bgcolor\">\n                        <i class=\"fa fa-thumbs-o-down\"\n                            style=\"font-size:25px;color:{{vars.input.params.style_colors.Malicious}};\"></i>\n                        <div class=\"font-size-11 ng-binding\">Malicious {{vars.community_votes.malicious}}</div>\n                    </td>\n                </tr>\n            </table>\n        </td>\n    </tr>\n</table>\n<table class=\"margin-top-sm  no-border\">\n    <tr class=\"solid-border\">\n        <td style=\"vertical-align: top;\">\n            <div class=\"half-width\" style=\"vertical-align: top;\"></div>\n    <div class=\"control-label padding-left-sm padding-bottom-sm\">Additional Summary:</div>\n    <div>{{vars.steps.VT_Additional_Summary.data['formatted_string']}}</div>\n        </td>\n    </tr>\n</table>"
+                  "value": "<table class=\"no-border\">\n    <tr>\n        <th colspan=\"2\" class=\"no-background padding-0\">\n            <div class=\"font-size-11 ng-binding padding-bottom-sm\">\n                <h4 style=\"color: orange;\"\n                    class=\"body-default-bgcolor margin-bottom-0 padding-bottom-md padding-left-md padding-top-md text-align-left\">\n                    VirusTotal Premium Detection Summary</h4>\n            </div>\n        </th>\n    </tr>\n    <tr class=\"solid-border\">\n        <td>\n            <table class=\"no-border\">\n                <tr>\n                    <td>\n                        <html><head>\n                            <title>Title of the document</title>\n                            <style>\n                                span.circle {\n                                    border-radius: 50%;\n                                    -moz-border-radius: 50%;\n                                    -webkit-border-radius: 50%;\n                                    display: inline-block;\n                                    font-weight: bold;\n                                    line-height: 100px;\n                                    margin-right: 5px;\n                                    text-align: center;\n                                    width: 100px;\n                                    font-size: 15px;\n                                }\n                            </style>\n                        </head><body><span class=\"circle body-default-bgcolor solid-border\"><i style=\"font-size:25px;color:{{vars.input.params.style_colors.Malicious}}\">\n                                    {{vars.last_analysis_stats.malicious}}</i>/{{vars.last_analysis_stats.values() |\n                                list | sum}}</span>\n                        </body></html>\n                    </td><td>\n                        <div small class=\"control-label\">Malicious</div>\n                        <div class=\"card-container-body margin-left-0\" style=\"width: 100px;\">\n                            <div class=\"body-default-bgcolor card-number font-weight-normal padding-5px padding-left-md font-size-25\"\n                                style=\"border-left: 5px solid {{vars.input.params.style_colors.Malicious}};\">\n                                {{vars.last_analysis_stats.malicious}}</div>\n                        </div>\n                    </td>\n                    <td>\n                        <div small class=\"control-label\">Suspicious</div>\n                        <div class=\"card-container-body margin-left-0\" style=\"width: 100px;\">\n                            <div class=\"body-default-bgcolor card-number font-weight-normal padding-5px padding-left-md font-size-25\"\n                                style=\"border-left: 5px solid {{vars.input.params.style_colors.Suspicious}};\">\n                                {{vars.last_analysis_stats.suspicious}}</div>\n                        </div>\n                    </td>\n                    <td>\n                        <div small class=\"control-label\">Harmless</div>\n                        <div class=\"card-container-body margin-left-0\" style=\"width: 100px;\">\n                            <div class=\"body-default-bgcolor card-number font-weight-normal padding-5px padding-left-md font-size-25\"\n                                style=\"border-left: 5px solid {{vars.input.params.style_colors['No Reputation Available']}};\">\n                                {{vars.last_analysis_stats.harmless}}</div>\n                        </div>\n                    </td>\n                </tr>\n            </table>\n        </td>\n        <td style=\"vertical-align:top; border-color: #04080c;\">\n            <table class=\"margin-10 no-border body-default-bgcolor\">\n                <tr>\n                    <div class=\"margin-top-md control-label\">\n                        <i class=\"fa fa-group margin-left-md margin-right-sm\"></i> Community Votes\n                    </div>\n                    <td style=\"width: 100px;text-align: center;\" class=\"body-default-bgcolor\">\n                        <i class=\"\tfa fa-thumbs-o-up\"\n                            style=\"font-size:25px;color:{{vars.input.params.style_colors['No Reputation Available']}};\"></i>\n                        <div class=\"font-size-11 ng-binding\">Harmless {{vars.community_votes.harmless}}</div>\n                    </td>\n                    <td style=\"width: 100px;text-align: center;\" class=\"body-default-bgcolor\">\n                        <i class=\"fa fa-thumbs-o-down\"\n                            style=\"font-size:25px;color:{{vars.input.params.style_colors.Malicious}};\"></i>\n                        <div class=\"font-size-11 ng-binding\">Malicious {{vars.community_votes.malicious}}</div>\n                    </td>\n                </tr>\n            </table>\n        </td>\n    </tr>\n</table>\n<table class=\"margin-top-sm  no-border\">\n    <tr class=\"solid-border\">\n        <td style=\"vertical-align: top;\">\n            <div class=\"half-width\" style=\"vertical-align: top;\"></div>\n    <div class=\"control-label padding-left-sm padding-bottom-sm\">Additional Summary:</div>\n    <div>{{vars.steps.VT_Additional_Summary.data['formatted_string']}}</div>\n        </td>\n    </tr>\n</table>"
                 },
                 "version": "3.2.1",
                 "connector": "cyops_utilities",
