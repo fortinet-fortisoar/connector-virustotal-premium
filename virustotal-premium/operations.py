@@ -132,7 +132,10 @@ def get_zip_file_status(config, params):
     endpoint = 'intelligence/zip_files/{0}'.format(params.get('id'))
     try:
         response = vtp.make_rest_call(endpoint, 'GET')
-        return response.get('data')
+        if response.get('data'):
+            return response.get('data')
+        else:
+            return response
     except Exception as err:
         logger.exception("{0}".format(str(err)))
         raise ConnectorError("{0}".format(str(err)))
@@ -143,7 +146,10 @@ def get_zip_file_url(config, params):
     endpoint = 'intelligence/zip_files/{0}/download_url'.format(params.get('id'))
     try:
         response = vtp.make_rest_call(endpoint, 'GET')
-        return {"url": response.get('data')}
+        if response.get('data'):
+            return {"url": response.get('data')}
+        else:
+            return response
     except Exception as err:
         logger.exception("{0}".format(str(err)))
         raise ConnectorError("{0}".format(str(err)))
@@ -249,7 +255,10 @@ def get_livehunt_ruleset_details(config, params):
     endpoint = 'intelligence/hunting_rulesets/{0}'.format(params.get('id'))
     try:
         response = vtp.make_rest_call(endpoint, 'GET')
-        return response.get('data')
+        if response.get('data'):
+            return response.get('data')
+        else:
+            return response
     except Exception as err:
         logger.exception("{0}".format(str(err)))
         raise ConnectorError("{0}".format(str(err)))
@@ -287,7 +296,9 @@ def delete_livehunt_ruleset(config, params):
     endpoint = 'intelligence/hunting_rulesets/{0}'.format(params.get('id'))
     try:
         response = vtp.make_rest_call(endpoint, 'DELETE')
-        if response:
+        if response.get('error'):
+            return response
+        else:
             return {"message": "Successful deleted livehunt ruleset {0}".format(params.get('id'))}
     except Exception as err:
         logger.exception("{0}".format(str(err)))
@@ -336,7 +347,10 @@ def get_livehunt_notifications_details(config, params):
     endpoint = 'intelligence/hunting_notifications/{0}'.format(params.get('id'))
     try:
         response = vtp.make_rest_call(endpoint, 'GET')
-        return response.get('data')
+        if response.get('data'):
+            return response.get('data')
+        else:
+            return response
     except Exception as err:
         logger.exception("{0}".format(str(err)))
         raise ConnectorError("{0}".format(str(err)))
@@ -358,7 +372,7 @@ def get_livehunt_rule_files_list(config, params):
         raise ConnectorError("{0}".format(str(err)))
 
 
-def convert_datetime_to_epoch(self, date_time):
+def convert_datetime_to_epoch(date_time):
     d1 = time.strptime(date_time, "%Y-%m-%dT%H:%M:%S.%fZ")
     epoch = datetime.datetime.fromtimestamp(time.mktime(d1)).strftime('%s')
     return epoch
@@ -383,8 +397,8 @@ def create_retrohunt_job(config, params):
                     "notification_email": params.get('notification_emails'),
                     "corpus": corpus.lower() if corpus else '',
                     "time_range": {
-                        "start": start_time,
-                        "end": end_time
+                        "start": int(start_time),
+                        "end": int(end_time)
                     }
                 }
             }
@@ -441,7 +455,9 @@ def delete_retrohunt_job(config, params):
     endpoint = 'intelligence/retrohunt_jobs/{0}'.format(params.get('id'))
     try:
         response = vtp.make_rest_call(endpoint, 'DELETE')
-        if response:
+        if response.get('error'):
+            return response
+        else:
             return {"message": "Successful deleted retrohunt job {0}".format(params.get('id'))}
     except Exception as err:
         logger.exception("{0}".format(str(err)))
