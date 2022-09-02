@@ -235,7 +235,8 @@
           "type": "text",
           "name": "order",
           "description": "(Optional) Specify the order in which you want to sort the results retrieved from VirusTotal. Note: If your 'Query' parameter contains content search, then the 'Order' parameter does not have any effect.",
-          "tooltip": "(Optional) Specify the order in which you want to sort the results retrieved from VirusTotal. Note: If your 'Query' parameter contains content search, then the 'Order' parameter does not have any effect."
+          "tooltip": "(Optional) Specify the order in which you want to sort the results retrieved from VirusTotal. Note: If your 'Query' parameter contains content search, then the 'Order' parameter does not have any effect. For e.g last_submission_date-, last_submission_date+, etc.",
+          "placeholder": "e.g last_submission_date-"
         },
         {
           "title": "Limit",
@@ -267,7 +268,8 @@
           "visible": true,
           "type": "text",
           "name": "cursor",
-          "tooltip": "(Optional) The 'Cursor' parameter is used only if a previous operation had returned a partial result. If a previous response contains a cursor element, then the value of the cursor element includes a cursor parameter that specifies a starting point to use for subsequent calls."
+          "tooltip": "(Optional) The 'Cursor' parameter is used only if a previous operation had returned a partial result. If a previous response contains a cursor element, then the value of the cursor element includes a cursor parameter that specifies a starting point to use for subsequent calls. For e.g eJwNysEOgjAMANBfgpEdPYhbTEnaXaoLvc5E6MbJA9jw8frO78wWHWn0KdSBGD5wmyrx2DAsKgoD2qiSwREXL_pqskXDjO7_-9nFY-ZHR3o9Etde9L0j446hfNGKT3layZaG9-cKrbucP-HbJOI=",
+          "placeholder": "e.g eJwNysEOgjAMANBfgpEdPYhbTEnaXaoLvc5E6MbJA9jw8frO78wWHWn0KdSBGD5wmyrx2DAsKgoD2qiSwREXL_pqskXDjO7_-9nFY-ZHR3o9Etde9L0j446hfNGKT3layZaG9-cKrbucP-HbJOI="
         }
       ],
       "output_schema": {
@@ -565,7 +567,7 @@
           "type": "text",
           "name": "order",
           "description": "(Optional) Specify the order in which you want to sort the results retrieved from VirusTotal. Note: If your 'Filter' parameter contains content search, then the 'Order' parameter does not have any effect.",
-          "tooltip": "(Optional) Specify the order in which you want to sort the results retrieved from VirusTotal. Note: If your 'Filter' parameter contains content search, then the 'Order' parameter does not have any effect.",
+          "tooltip": "(Optional) Specify the order in which you want to sort the results retrieved from VirusTotal. Note: If your 'Filter' parameter contains content search, then the 'Order' parameter does not have any effect. For e.g creation_date+, creation_date-, etc.",
           "placeholder": "e.g. creation_date+"
         },
         {
@@ -587,7 +589,8 @@
           "visible": true,
           "type": "text",
           "name": "cursor",
-          "tooltip": "(Optional) The 'Cursor' parameter is used only if a previous operation had returned a partial result. If a previous response contains a cursor element, then the value of the cursor element includes a cursor parameter that specifies a starting point to use for subsequent calls."
+          "tooltip": "(Optional) The 'Cursor' parameter is used only if a previous operation had returned a partial result. If a previous response contains a cursor element, then the value of the cursor element includes a cursor parameter that specifies a starting point to use for subsequent calls. For e.g eJwNysEOgjAMANBfgpEdPYhbTEnaXaoLvc5E6MbJA9jw8frO78wWHWn0KdSBGD5wmyrx2DAsKgoD2qiSwREXL_pqskXDjO7_-9nFY-ZHR3o9Etde9L0j446hfNGKT3layZaG9-cKrbucP-HbJOI=",
+          "placeholder": "e.g eJwNysEOgjAMANBfgpEdPYhbTEnaXaoLvc5E6MbJA9jw8frO78wWHWn0KdSBGD5wmyrx2DAsKgoD2qiSwREXL_pqskXDjO7_-9nFY-ZHR3o9Etde9L0j446hfNGKT3layZaG9-cKrbucP-HbJOI="
         }
       ],
       "output_schema": {
@@ -811,7 +814,7 @@
           "type": "text",
           "name": "order",
           "description": "(Optional) Specify the order in which you want to sort the results retrieved from VirusTotal. Note: If your 'Filter' parameter contains content search, then the 'Order' parameter does not have any effect.",
-          "tooltip": "(Optional) Specify the order in which you want to sort the results retrieved from VirusTotal. Note: If your 'Filter' parameter contains content search, then the 'Order' parameter does not have any effect.",
+          "tooltip": "(Optional) Specify the order in which you want to sort the results retrieved from VirusTotal. Note: If your 'Filter' parameter contains content search, then the 'Order' parameter does not have any effect. For e.g date+, date-, etc.",
           "placeholder": "e.g. date+"
         },
         {
@@ -833,7 +836,8 @@
           "visible": true,
           "type": "text",
           "name": "cursor",
-          "tooltip": "(Optional) The 'Cursor' parameter is used only if a previous operation had returned a partial result. If a previous response contains a cursor element, then the value of the cursor element includes a cursor parameter that specifies a starting point to use for subsequent calls."
+          "tooltip": "(Optional) The 'Cursor' parameter is used only if a previous operation had returned a partial result. If a previous response contains a cursor element, then the value of the cursor element includes a cursor parameter that specifies a starting point to use for subsequent calls. For e.g eJwNysEOgjAMANBfgpEdPYhbTEnaXaoLvc5E6MbJA9jw8frO78wWHWn0KdSBGD5wmyrx2DAsKgoD2qiSwREXL_pqskXDjO7_-9nFY-ZHR3o9Etde9L0j446hfNGKT3layZaG9-cKrbucP-HbJOI=",
+          "placeholder": "e.g eJwNysEOgjAMANBfgpEdPYhbTEnaXaoLvc5E6MbJA9jw8frO78wWHWn0KdSBGD5wmyrx2DAsKgoD2qiSwREXL_pqskXDjO7_-9nFY-ZHR3o9Etde9L0j446hfNGKT3layZaG9-cKrbucP-HbJOI="
         },
         {
           "title": "Count Limit",
@@ -1197,7 +1201,8 @@
           "visible": true,
           "type": "text",
           "name": "cursor",
-          "tooltip": "(Optional) The 'Cursor' parameter is used only if a previous operation had returned a partial result. If a previous response contains a cursor element, then the value of the cursor element includes a cursor parameter that specifies a starting point to use for subsequent calls."
+          "tooltip": "(Optional) The 'Cursor' parameter is used only if a previous operation had returned a partial result. If a previous response contains a cursor element, then the value of the cursor element includes a cursor parameter that specifies a starting point to use for subsequent calls. For e.g eJwNysEOgjAMANBfgpEdPYhbTEnaXaoLvc5E6MbJA9jw8frO78wWHWn0KdSBGD5wmyrx2DAsKgoD2qiSwREXL_pqskXDjO7_-9nFY-ZHR3o9Etde9L0j446hfNGKT3layZaG9-cKrbucP-HbJOI=",
+          "placeholder": "e.g eJwNysEOgjAMANBfgpEdPYhbTEnaXaoLvc5E6MbJA9jw8frO78wWHWn0KdSBGD5wmyrx2DAsKgoD2qiSwREXL_pqskXDjO7_-9nFY-ZHR3o9Etde9L0j446hfNGKT3layZaG9-cKrbucP-HbJOI="
         }
       ],
       "output_schema": {
@@ -1376,7 +1381,8 @@
           "visible": true,
           "type": "text",
           "name": "cursor",
-          "tooltip": "(Optional) The 'Cursor' parameter is used only if a previous operation had returned a partial result. If a previous response contains a cursor element, then the value of the cursor element includes a cursor parameter that specifies a starting point to use for subsequent calls."
+          "tooltip": "(Optional) The 'Cursor' parameter is used only if a previous operation had returned a partial result. If a previous response contains a cursor element, then the value of the cursor element includes a cursor parameter that specifies a starting point to use for subsequent calls. For e.g eJwNysEOgjAMANBfgpEdPYhbTEnaXaoLvc5E6MbJA9jw8frO78wWHWn0KdSBGD5wmyrx2DAsKgoD2qiSwREXL_pqskXDjO7_-9nFY-ZHR3o9Etde9L0j446hfNGKT3layZaG9-cKrbucP-HbJOI=",
+          "placeholder": "e.g eJwNysEOgjAMANBfgpEdPYhbTEnaXaoLvc5E6MbJA9jw8frO78wWHWn0KdSBGD5wmyrx2DAsKgoD2qiSwREXL_pqskXDjO7_-9nFY-ZHR3o9Etde9L0j446hfNGKT3layZaG9-cKrbucP-HbJOI="
         }
       ],
       "output_schema": {
@@ -1488,7 +1494,8 @@
           "visible": true,
           "type": "text",
           "name": "cursor",
-          "tooltip": "(Optional) The 'Cursor' parameter is used only if a previous operation had returned a partial result. If a previous response contains a cursor element, then the value of the cursor element includes a cursor parameter that specifies a starting point to use for subsequent calls."
+          "tooltip": "(Optional) The 'Cursor' parameter is used only if a previous operation had returned a partial result. If a previous response contains a cursor element, then the value of the cursor element includes a cursor parameter that specifies a starting point to use for subsequent calls. For e.g eJwNysEOgjAMANBfgpEdPYhbTEnaXaoLvc5E6MbJA9jw8frO78wWHWn0KdSBGD5wmyrx2DAsKgoD2qiSwREXL_pqskXDjO7_-9nFY-ZHR3o9Etde9L0j446hfNGKT3layZaG9-cKrbucP-HbJOI=",
+          "placeholder": "e.g eJwNysEOgjAMANBfgpEdPYhbTEnaXaoLvc5E6MbJA9jw8frO78wWHWn0KdSBGD5wmyrx2DAsKgoD2qiSwREXL_pqskXDjO7_-9nFY-ZHR3o9Etde9L0j446hfNGKT3layZaG9-cKrbucP-HbJOI="
         }
       ],
       "output_schema": {
