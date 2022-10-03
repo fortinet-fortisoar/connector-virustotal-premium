@@ -9,6 +9,13 @@
   "category": "Threat Intelligence",
   "icon_small_name": "small.png",
   "icon_large_name": "large.png",
+  "tags": [
+    "Enrichment",
+    "IP_Enrichment",
+    "FileHash_Enrichment",
+    "URL_Enrichment",
+    "Domain_Enrichment"
+  ],
   "help_online": "https://docs.fortinet.com/document/fortisoar/1.0.0/virustotal-premium/349/virustotal-premium-v1-0-0",
   "configuration": {
     "fields": [
