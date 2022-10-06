@@ -71,7 +71,71 @@
           "tooltip": "Specify the SHA-256, SHA-1, or MD5 of the file for which you want to retrieve a VirusTotal report."
         }
       ],
-      "output_schema": {}
+      "output_schema": {
+        "id": "",
+        "@id": "",
+        "file": {
+          "id": "",
+          "@id": "",
+          "size": "",
+          "uuid": "",
+          "@type": "",
+          "assignee": "",
+          "filename": "",
+          "metadata": [],
+          "mimeType": "",
+          "thumbnail": "",
+          "uploadDate": ""
+        },
+        "name": "",
+        "type": "",
+        "uuid": "",
+        "@type": "",
+        "tasks": [],
+        "alerts": [],
+        "assets": [],
+        "owners": [],
+        "people": [],
+        "@context": "",
+        "assignee": "",
+        "comments": [],
+        "warrooms": [],
+        "incidents": [],
+        "createDate": "",
+        "createUser": {
+          "id": "",
+          "@id": "",
+          "name": "",
+          "uuid": "",
+          "@type": "",
+          "avatar": "",
+          "userId": "",
+          "userType": "",
+          "createDate": "",
+          "createUser": "",
+          "modifyDate": "",
+          "modifyUser": ""
+        },
+        "indicators": [],
+        "modifyDate": "",
+        "modifyUser": {
+          "id": "",
+          "@id": "",
+          "name": "",
+          "uuid": "",
+          "@type": "",
+          "avatar": "",
+          "userId": "",
+          "userType": "",
+          "createDate": "",
+          "createUser": "",
+          "modifyDate": "",
+          "modifyUser": ""
+        },
+        "recordTags": [],
+        "userOwners": [],
+        "description": ""
+      }
     },
     {
       "operation": "create_zip_file",
@@ -192,7 +256,71 @@
           "tooltip": "Specify the file identifier of the ZIP file that you want to download from VirusTotal."
         }
       ],
-      "output_schema": {}
+      "output_schema": {
+        "id": "",
+        "@id": "",
+        "file": {
+          "id": "",
+          "@id": "",
+          "size": "",
+          "uuid": "",
+          "@type": "",
+          "assignee": "",
+          "filename": "",
+          "metadata": [],
+          "mimeType": "",
+          "thumbnail": "",
+          "uploadDate": ""
+        },
+        "name": "",
+        "type": "",
+        "uuid": "",
+        "@type": "",
+        "tasks": [],
+        "alerts": [],
+        "assets": [],
+        "owners": [],
+        "people": [],
+        "@context": "",
+        "assignee": "",
+        "comments": [],
+        "warrooms": [],
+        "incidents": [],
+        "createDate": "",
+        "createUser": {
+          "id": "",
+          "@id": "",
+          "name": "",
+          "uuid": "",
+          "@type": "",
+          "avatar": "",
+          "userId": "",
+          "userType": "",
+          "createDate": "",
+          "createUser": "",
+          "modifyDate": "",
+          "modifyUser": ""
+        },
+        "indicators": [],
+        "modifyDate": "",
+        "modifyUser": {
+          "id": "",
+          "@id": "",
+          "name": "",
+          "uuid": "",
+          "@type": "",
+          "avatar": "",
+          "userId": "",
+          "userType": "",
+          "createDate": "",
+          "createUser": "",
+          "modifyDate": "",
+          "modifyUser": ""
+        },
+        "recordTags": [],
+        "userOwners": [],
+        "description": ""
+      }
     },
     {
       "operation": "get_pcap_file_behaviour",
@@ -690,7 +818,7 @@
           "editable": true,
           "visible": true,
           "type": "text",
-          "name": "name",
+          "name": "id",
           "tooltip": "Specify the ID of the livehunt ruleset that you want to update in VirusTotal."
         },
         {
@@ -1309,23 +1437,21 @@
         }
       ],
       "output_schema": {
-        "data": {
-          "attributes": {
-            "status": "",
-            "rules": "",
-            "num_matches_outside_time_range": "",
-            "scanned_bytes": "",
-            "creation_date": "",
-            "progress": "",
-            "num_matches": "",
-            "notification_email": "",
-            "corpus": ""
-          },
-          "type": "",
-          "id": "",
-          "links": {
-            "self": ""
-          }
+        "attributes": {
+          "status": "",
+          "rules": "",
+          "num_matches_outside_time_range": "",
+          "scanned_bytes": "",
+          "creation_date": "",
+          "progress": "",
+          "num_matches": "",
+          "notification_email": "",
+          "corpus": ""
+        },
+        "type": "",
+        "id": "",
+        "links": {
+          "self": ""
         }
       }
     },
