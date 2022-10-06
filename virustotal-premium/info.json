@@ -818,7 +818,7 @@
           "editable": true,
           "visible": true,
           "type": "text",
-          "name": "name",
+          "name": "id",
           "tooltip": "Specify the ID of the livehunt ruleset that you want to update in VirusTotal."
         },
         {
