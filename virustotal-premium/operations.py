@@ -163,6 +163,8 @@ def download_zip_file(config, params):
         response = vtp.make_rest_call(endpoint, 'GET')
         logger.debug("API response: {0}".format(response))
         if response:
+            if response.get('error'):
+                return response
             path = os.path.join(settings.TMP_FILE_ROOT, file_name)
             logger.debug("Path: {0}".format(path))
             with open(path, 'wb') as fp:
@@ -383,10 +385,10 @@ def create_retrohunt_job(config, params):
     endpoint = 'intelligence/retrohunt_jobs'
     start_time = params.get('start_time')
     if 'T' in start_time:
-        start_time = convert_datetime_to_epoch(start_time)
+        start_time = int(convert_datetime_to_epoch(start_time))
     end_time = params.get('end_time')
     if 'T' in end_time:
-        end_time = convert_datetime_to_epoch(end_time)
+        end_time = int(convert_datetime_to_epoch(end_time))
     corpus = params.get('corpus')
     try:
         payload = {
@@ -397,15 +399,15 @@ def create_retrohunt_job(config, params):
                     "notification_email": params.get('notification_emails'),
                     "corpus": corpus.lower() if corpus else '',
                     "time_range": {
-                        "start": int(start_time),
-                        "end": int(end_time)
+                        "start": start_time,
+                        "end": end_time
                     }
                 }
             }
         }
         payload = check_payload(payload)
         response = vtp.make_rest_call(endpoint, 'POST', data=json.dumps(payload))
-        return response
+        return response.get('data')
     except Exception as err:
         logger.exception("{0}".format(str(err)))
         raise ConnectorError("{0}".format(str(err)))
