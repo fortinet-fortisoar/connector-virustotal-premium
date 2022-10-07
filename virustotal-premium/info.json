@@ -1464,7 +1464,7 @@
       "enabled": true,
       "parameters": [
         {
-          "title": "job ID",
+          "title": "Job ID",
           "description": "Specify the ID of the Retrohunt job that you want to abort in VirusTotal.",
           "required": true,
           "editable": true,
@@ -1558,7 +1558,7 @@
       "enabled": true,
       "parameters": [
         {
-          "title": "job ID",
+          "title": "Job ID",
           "description": "Specify the ID of the Retrohunt job for which you want to retrieve details from VirusTotal.",
           "required": true,
           "editable": true,
@@ -1599,7 +1599,7 @@
       "enabled": true,
       "parameters": [
         {
-          "title": "job ID",
+          "title": "Job ID",
           "description": "Specify the ID of the Retrohunt job for which you want to retrieve details from VirusTotal.",
           "required": true,
           "editable": true,
@@ -1812,7 +1812,7 @@
       "enabled": true,
       "parameters": [
         {
-          "title": "job ID",
+          "title": "Job ID",
           "description": "Specify the ID of the Retrohunt job that you want to delete from VirusTotal.",
           "required": true,
           "editable": true,
