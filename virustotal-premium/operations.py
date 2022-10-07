@@ -55,7 +55,7 @@ class VirusTotalPremium(object):
                 if 'json' in str(response.headers):
                     return response.json()
                 else:
-                    return response
+                    return response.text
             elif response.status_code == 404:
                 return response.json()
             else:
@@ -296,15 +296,11 @@ def update_livehunt_ruleset(config, params):
 def delete_livehunt_ruleset(config, params):
     vtp = VirusTotalPremium(config)
     endpoint = 'intelligence/hunting_rulesets/{0}'.format(params.get('id'))
-    try:
-        response = vtp.make_rest_call(endpoint, 'DELETE')
-        if response.get('error'):
-            return response
-        else:
-            return {"message": "Successful deleted livehunt ruleset {0}".format(params.get('id'))}
-    except Exception as err:
-        logger.exception("{0}".format(str(err)))
-        raise ConnectorError("{0}".format(str(err)))
+    response = vtp.make_rest_call(endpoint, 'DELETE')
+    if response:
+        return response
+    else:
+        return {"message": "Successful deleted livehunt ruleset {0}".format(params.get('id'))}
 
 
 def get_livehunt_notifications_list(config, params):
@@ -457,7 +453,7 @@ def delete_retrohunt_job(config, params):
     endpoint = 'intelligence/retrohunt_jobs/{0}'.format(params.get('id'))
     try:
         response = vtp.make_rest_call(endpoint, 'DELETE')
-        if response.get('error'):
+        if response:
             return response
         else:
             return {"message": "Successful deleted retrohunt job {0}".format(params.get('id'))}
