@@ -300,7 +300,7 @@ def delete_livehunt_ruleset(config, params):
     if response:
         return response
     else:
-        return {"message": "Successful deleted livehunt ruleset {0}".format(params.get('id'))}
+        return {"message": "Successfully deleted livehunt ruleset {0}".format(params.get('id'))}
 
 
 def get_livehunt_notifications_list(config, params):
@@ -456,7 +456,7 @@ def delete_retrohunt_job(config, params):
         if response:
             return response
         else:
-            return {"message": "Successful deleted retrohunt job {0}".format(params.get('id'))}
+            return {"message": "Successfully deleted retrohunt job {0}".format(params.get('id'))}
     except Exception as err:
         logger.exception("{0}".format(str(err)))
         raise ConnectorError("{0}".format(str(err)))
