@@ -1,5 +1,5 @@
 """ Copyright start
-  Copyright (C) 2008 - 2022 Fortinet Inc.
+  Copyright (C) 2008 - 2023 Fortinet Inc.
   All rights reserved.
   FORTINET CONFIDENTIAL & FORTINET PROPRIETARY SOURCE CODE
   Copyright end """
@@ -7,7 +7,8 @@
 from connectors.core.connector import Connector, get_logger, ConnectorError
 from integrations.crudhub import make_request
 from django.conf import settings
-from .operations import operations, _check_health, MACRO_LIST
+from .operations import operations, _check_health
+from .constants import MACRO_LIST
 
 logger = get_logger("virustotal-premium")
 
