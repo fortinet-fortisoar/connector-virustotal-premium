@@ -90,6 +90,29 @@
       ]
     },
     {
+      "operation": "scan_url",
+      "title": "Submit URL for Scanning",
+      "description": "Scans and analyzes the URL submitted to VirusTotal to determine if it is suspicious based on the URL you have specified.",
+      "category": "investigation",
+      "annotation": "scan_url",
+      "enabled": true,
+      "output_schema": {
+        "type": "",
+        "id": ""
+      },
+      "parameters": [
+        {
+          "title": "URL",
+          "required": true,
+          "editable": true,
+          "visible": true,
+          "type": "text",
+          "name": "url",
+          "description": "Specify the URL that you want to submit to VirusTotal for scanning."
+        }
+      ]
+    },
+    {
       "operation": "get_ip_reputation",
       "title": "Get IP Reputation",
       "description": "Retrieves a report from VirusTotal for the IP address submitted to determine if it is suspicious based on the IP address you have specified.",
