@@ -30,12 +30,15 @@ class VirusTotalPremium(object):
         try:
             if 'www.virustotal.com' in url:
                 url = url
+                headers = {
+                    'user-agent': "FortiSOAR Integration"
+                }
             else:
                 url = self.url + url
-            headers = {
-                'x-apikey': self.api_key,
-                'Content-Type': 'application/json'
-            }
+                headers = {
+                    'x-apikey': self.api_key,
+                    'Content-Type': 'application/x-www-form-urlencoded, application/json'
+                }
             if files:
                 del headers['Content-Type']
             logger.debug("Endpoint {0}".format(url))
@@ -723,6 +726,20 @@ def submit_file(config, params):
         raise ConnectorError("{0}".format(str(err)))
 
 
+def scan_url(config, params):
+    try:
+        vtp = VirusTotalPremium(config)
+        endpoint = 'urls'
+        params = {'url': params.get('url')}
+        response = vtp.make_rest_call(endpoint, 'POST', data=params)
+        if response.get('error'):
+            return response.get('error')
+        return response.get('data')
+    except Exception as err:
+        logger.exception("{0}".format(str(err)))
+        raise ConnectorError("{0}".format(str(err)))
+
+
 def get_widget_rendering_url(config, params):
     try:
         vtp = VirusTotalPremium(config)
@@ -744,8 +761,6 @@ def get_widget_html_content(config, params):
             token = token.split("/")[-1]
         endpoint = 'https://www.virustotal.com/ui/widget/html/{0}'.format(token)
         response = vtp.make_rest_call(endpoint, 'GET')
-        if response.get('error'):
-            return response.get('error')
         return response
     except Exception as err:
         logger.exception("{0}".format(str(err)))
@@ -770,6 +785,7 @@ operations = {
     'get_file_reputation': get_file_reputation,
     'submit_sample': submit_file,
     'analysis_file': analysis_file,
+    'scan_url': scan_url,
     'download_file': download_file,
     'create_zip_file': create_zip_file,
     'get_zip_file_status': get_zip_file_status,
