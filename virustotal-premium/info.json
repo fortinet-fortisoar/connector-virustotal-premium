@@ -54,6 +54,99 @@
   },
   "operations": [
     {
+      "operation": "get_widget_rendering_url",
+      "title": "Get Widget Rendering URL",
+      "description": "Retrieves a rendering URL of the widget it valid for three days.",
+      "category": "investigation",
+      "annotation": "get_widget_rendering_url",
+      "enabled": true,
+      "output_schema": {
+        "data": {
+          "url": "",
+          "found": "",
+          "detection_ratio": {
+            "detections": "",
+            "total": ""
+          },
+          "type": "",
+          "id": ""
+        }
+      },
+      "parameters": [
+        {
+          "title": "Indicator",
+          "tooltip": "Specify the file hash (md5, sha1 or sha256), URL, IP address or a Domain",
+          "required": true,
+          "editable": true,
+          "visible": true,
+          "type": "text",
+          "name": "query",
+          "description": "Specify the file hash (md5, sha1 or sha256), URL, IP address or a Domain"
+        },
+        {
+          "title": "Foreground Color",
+          "tooltip": "Specify the theme primary foreground color in hex notation",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "type": "text",
+          "name": "fg1",
+          "description": "Specify the theme primary foreground color in hex notation"
+        },
+        {
+          "title": "Primary Background Color",
+          "tooltip": "Specify the theme primary background color in hex notation",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "type": "text",
+          "name": "bg1",
+          "description": "Specify the theme primary background color in hex notation"
+        },
+        {
+          "title": "Secondary Background Color",
+          "tooltip": "Specify the theme secondary background color in hex notation",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "type": "text",
+          "name": "bg2",
+          "description": "Specify the theme secondary background color in hex notation"
+        },
+        {
+          "title": "Border Color",
+          "tooltip": "Specify the theme border color",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "type": "text",
+          "name": "bd1",
+          "description": "Specify the theme border color"
+        }
+      ]
+    },
+    {
+      "operation": "get_widget_html_content",
+      "title": "Get Widget HTML Content",
+      "description": "Retrieves the actual HTML content of the widget report for a given observable.",
+      "category": "investigation",
+      "annotation": "get_widget_html_content",
+      "enabled": true,
+      "output_schema": {},
+      "parameters": [
+        {
+          "title": "Token",
+          "tooltip": "Specify the token value which is provided by the \"Get Widget Rendering URL\" operation response in URL field.",
+          "required": true,
+          "editable": true,
+          "visible": true,
+          "type": "text",
+          "name": "token",
+          "description": "Specify the token value which is provided by the \"Get Widget Rendering URL\" operation response in URL field."
+        }
+      ]
+    },
+    {
       "operation": "submit_sample",
       "title": "Submit File",
       "description": "Scans and analyzes files submitted to VirusTotal from FortiSOAR™ to determine if it is suspicious based on the Attachment ID or File IRI you have specified.",
@@ -286,7 +379,7 @@
     },
     {
       "operation": "analysis_file",
-      "title": "Get Analysis Details",
+      "title": "Get File Or URL Analysis Report",
       "description": "Retrieves details of a File or URL analysis from VirusTotal for the File or URL that you had submitted for scanning and analysis to VirusTotal using the \"Submit File\" or \"Submit URL for scanning\" action.",
       "category": "investigation",
       "annotation": "analysis_file",
@@ -390,7 +483,7 @@
     {
       "operation": "download_file",
       "title": "Download File",
-      "description": "Downloads VirustTotal report for a specified file from VirusTotal based on the hash value of the file you have specified.",
+      "description": "Downloads VirusTotal report for a specified file from VirusTotal based on the hash value of the file you have specified.",
       "category": "investigation",
       "annotation": "download_file",
       "enabled": true,
@@ -1813,7 +1906,7 @@
     },
     {
       "operation": "get_retrohunt_jobs_list",
-      "title": "Get Retrohunt jobs List",
+      "title": "Get Retrohunt Jobs List",
       "description": "Retrieves a list of all Retrohunt jobs from VirusTotal based on the filter and other input parameters that you have specified.",
       "category": "investigation",
       "annotation": "get_retrohunt_jobs_list",
@@ -2160,99 +2253,6 @@
       "output_schema": {
         "message": ""
       }
-    },
-    {
-      "operation": "get_widget_rendering_url",
-      "title": "Get Widget Rendering URL",
-      "description": "Retrieves a rendering URL of the widget it valid for three days.",
-      "category": "investigation",
-      "annotation": "get_widget_rendering_url",
-      "enabled": true,
-      "output_schema": {
-        "data": {
-          "url": "",
-          "found": "",
-          "detection_ratio": {
-            "detections": "",
-            "total": ""
-          },
-          "type": "",
-          "id": ""
-        }
-      },
-      "parameters": [
-        {
-          "title": "Query",
-          "tooltip": "A file hash (md5, sha1 or sha256), URL, IP address or a Domain",
-          "required": true,
-          "editable": true,
-          "visible": true,
-          "type": "text",
-          "name": "query",
-          "description": "A file hash (md5, sha1 or sha256), URL, IP address or a Domain"
-        },
-        {
-          "title": "ForeGround Color",
-          "tooltip": "Theme primary foreground color in hex notation",
-          "required": false,
-          "editable": true,
-          "visible": true,
-          "type": "text",
-          "name": "fg1",
-          "description": "Theme primary foreground color in hex notation"
-        },
-        {
-          "title": "Primary Background Color",
-          "tooltip": "Theme primary background color in hex notation",
-          "required": false,
-          "editable": true,
-          "visible": true,
-          "type": "text",
-          "name": "bg1",
-          "description": "Theme primary background color in hex notation"
-        },
-        {
-          "title": "Secondary Background Color",
-          "tooltip": "Theme secondary background color in hex notation",
-          "required": false,
-          "editable": true,
-          "visible": true,
-          "type": "text",
-          "name": "bg2",
-          "description": "Theme secondary background color in hex notation"
-        },
-        {
-          "title": "Border Color",
-          "tooltip": "Theme border color",
-          "required": false,
-          "editable": true,
-          "visible": true,
-          "type": "text",
-          "name": "bd1",
-          "description": "Theme border color"
-        }
-      ]
-    },
-    {
-      "operation": "get_widget_html_content",
-      "title": "Get Widget HTML Content",
-      "description": "Retrieves the actual HTML content of the widget report for a given observable.",
-      "category": "investigation",
-      "annotation": "get_widget_html_content",
-      "enabled": true,
-      "output_schema": {},
-      "parameters": [
-        {
-          "title": "Token",
-          "tooltip": "This token is provided by the \"Get Widget Rendering URL\" operation response.",
-          "required": true,
-          "editable": true,
-          "visible": true,
-          "type": "text",
-          "name": "token",
-          "description": "This token is provided by the \"Get Widget Rendering URL\" operation response."
-        }
-      ]
     },
     {
       "operation": "get_output_schema_ip",
