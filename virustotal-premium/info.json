@@ -74,54 +74,54 @@
       },
       "parameters": [
         {
-          "title": "Query",
-          "tooltip": "A file hash (md5, sha1 or sha256), URL, IP address or a Domain",
+          "title": "Indicator",
+          "tooltip": "Specify the file hash (md5, sha1 or sha256), URL, IP address or a Domain",
           "required": true,
           "editable": true,
           "visible": true,
           "type": "text",
           "name": "query",
-          "description": "A file hash (md5, sha1 or sha256), URL, IP address or a Domain"
+          "description": "Specify the file hash (md5, sha1 or sha256), URL, IP address or a Domain"
         },
         {
-          "title": "ForeGround Color",
-          "tooltip": "Theme primary foreground color in hex notation",
+          "title": "Foreground Color",
+          "tooltip": "Specify the theme primary foreground color in hex notation",
           "required": false,
           "editable": true,
           "visible": true,
           "type": "text",
           "name": "fg1",
-          "description": "Theme primary foreground color in hex notation"
+          "description": "Specify the theme primary foreground color in hex notation"
         },
         {
           "title": "Primary Background Color",
-          "tooltip": "Theme primary background color in hex notation",
+          "tooltip": "Specify the theme primary background color in hex notation",
           "required": false,
           "editable": true,
           "visible": true,
           "type": "text",
           "name": "bg1",
-          "description": "Theme primary background color in hex notation"
+          "description": "Specify the theme primary background color in hex notation"
         },
         {
           "title": "Secondary Background Color",
-          "tooltip": "Theme secondary background color in hex notation",
+          "tooltip": "Specify the theme secondary background color in hex notation",
           "required": false,
           "editable": true,
           "visible": true,
           "type": "text",
           "name": "bg2",
-          "description": "Theme secondary background color in hex notation"
+          "description": "Specify the theme secondary background color in hex notation"
         },
         {
           "title": "Border Color",
-          "tooltip": "Theme border color",
+          "tooltip": "Specify the theme border color",
           "required": false,
           "editable": true,
           "visible": true,
           "type": "text",
           "name": "bd1",
-          "description": "Theme border color"
+          "description": "Specify the theme border color"
         }
       ]
     },
@@ -136,13 +136,13 @@
       "parameters": [
         {
           "title": "Token",
-          "tooltip": "This token is provided by the \"Get Widget Rendering URL\" operation response.",
+          "tooltip": "Specify the token value which is provided by the \"Get Widget Rendering URL\" operation response in URL field.",
           "required": true,
           "editable": true,
           "visible": true,
           "type": "text",
           "name": "token",
-          "description": "This token is provided by the \"Get Widget Rendering URL\" operation response."
+          "description": "Specify the token value which is provided by the \"Get Widget Rendering URL\" operation response in URL field."
         }
       ]
     },
