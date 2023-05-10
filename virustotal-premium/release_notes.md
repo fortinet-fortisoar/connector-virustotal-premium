@@ -6,7 +6,7 @@
     - Get URL Reputation
     - Get File Reputation
     - Submit File
-    - Get Analysis Details
+    - Get File Or URL Analysis Report
     - Get Widget Rendering URL
     - Get Widget HTML Content
 - Added the following pluggable enrichment playbook with filed mapping that automatically enrich data when you install

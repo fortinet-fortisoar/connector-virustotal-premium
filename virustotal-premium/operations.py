@@ -650,6 +650,8 @@ def get_file_reputation(config, params):
             return response.get('error')
         if response:
             id = response['data']['id']
+            response['data']['attributes'].update(
+                {'names': [ascii(x).strip("'") for x in response['data']['attributes']['names']]})
             response['data']['links']['self'] = 'https://www.virustotal.com/gui/file/{0}/detection'.format(id)
             return response.get('data')
     except Exception as err:
