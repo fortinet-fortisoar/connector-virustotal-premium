@@ -17,7 +17,7 @@
     "Domain_Enrichment",
     "File_Enrichment"
   ],
-  "help_online": "",
+  "help_online": "https://docs.fortinet.com/document/fortisoar/1.1.0/virustotal-premium/581/virustotal-premium-v1-1-0",
   "configuration": {
     "fields": [
       {
@@ -56,7 +56,7 @@
     {
       "operation": "get_widget_rendering_url",
       "title": "Get Widget Rendering URL",
-      "description": "Retrieves a rendering URL of the widget it valid for three days.",
+      "description": "Retrieves a URL from VirusTotal that renders a widget within an iframe and is valid for three days.",
       "category": "investigation",
       "annotation": "get_widget_rendering_url",
       "enabled": true,
@@ -75,53 +75,53 @@
       "parameters": [
         {
           "title": "Indicator",
-          "tooltip": "Specify the file hash (md5, sha1 or sha256), URL, IP address or a Domain",
+          "tooltip": "Specify the file hash (md5, sha1 or sha256), URL, IP address, or a Domain.",
           "required": true,
           "editable": true,
           "visible": true,
           "type": "text",
           "name": "query",
-          "description": "Specify the file hash (md5, sha1 or sha256), URL, IP address or a Domain"
+          "description": "Specify the file hash (md5, sha1 or sha256), URL, IP address, or a Domain."
         },
         {
           "title": "Foreground Color",
-          "tooltip": "Specify the theme primary foreground color in hex notation",
+          "tooltip": "Specify the theme primary foreground color in hex notation.",
           "required": false,
           "editable": true,
           "visible": true,
           "type": "text",
           "name": "fg1",
-          "description": "Specify the theme primary foreground color in hex notation"
+          "description": "Specify the theme primary foreground color in hex notation."
         },
         {
           "title": "Primary Background Color",
-          "tooltip": "Specify the theme primary background color in hex notation",
+          "tooltip": "Specify the theme primary background color in hex notation.",
           "required": false,
           "editable": true,
           "visible": true,
           "type": "text",
           "name": "bg1",
-          "description": "Specify the theme primary background color in hex notation"
+          "description": "Specify the theme primary background color in hex notation."
         },
         {
           "title": "Secondary Background Color",
-          "tooltip": "Specify the theme secondary background color in hex notation",
+          "tooltip": "Specify the theme secondary background color in hex notation.",
           "required": false,
           "editable": true,
           "visible": true,
           "type": "text",
           "name": "bg2",
-          "description": "Specify the theme secondary background color in hex notation"
+          "description": "Specify the theme secondary background color in hex notation."
         },
         {
           "title": "Border Color",
-          "tooltip": "Specify the theme border color",
+          "tooltip": "Specify the theme border color.",
           "required": false,
           "editable": true,
           "visible": true,
           "type": "text",
           "name": "bd1",
-          "description": "Specify the theme border color"
+          "description": "Specify the theme border color."
         }
       ]
     },
@@ -136,13 +136,13 @@
       "parameters": [
         {
           "title": "Token",
-          "tooltip": "Specify the token value which is provided by the \"Get Widget Rendering URL\" operation response in URL field.",
+          "tooltip": "Specify the token provided by the Get Widget Rendering URL operation response.",
           "required": true,
           "editable": true,
           "visible": true,
           "type": "text",
           "name": "token",
-          "description": "Specify the token value which is provided by the \"Get Widget Rendering URL\" operation response in URL field."
+          "description": "Specify the token provided by the Get Widget Rendering URL operation response."
         }
       ]
     },
