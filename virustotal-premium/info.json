@@ -151,7 +151,7 @@
       "title": "Submit File",
       "description": "Scans and analyzes files submitted to VirusTotal from FortiSOAR™ to determine if it is suspicious based on the Attachment ID or File IRI you have specified.",
       "category": "investigation",
-      "annotation": "submit_sample",
+      "annotation": "submit_file",
       "enabled": true,
       "output_schema": {
         "id": "",
