@@ -1186,7 +1186,7 @@
                 "verdict": "{% if vars.last_analysis_stats.malicious > 0 %}{{\"Malicious\"}}{% elif vars.last_analysis_stats.suspicious > 0 %}{{\"Suspicious\"}}{% elif vars.last_analysis_stats.harmless > 0 %}{{\"Good\"}}{% else %}{{\"No Reputation Available\"}}{% endif %}",
                 "cti_name": "VirusTotal Premium",
                 "cti_score": "{{vars.last_analysis_stats.malicious or vars.last_analysis_stats.suspicious or 0}}",
-                "source_data": "{ \"VirusTotal\":{{vars.steps.Get_IP_Reputation.data}} }",
+                "source_data": "{ \"VirusTotal Premium\":{{vars.steps.Get_IP_Reputation.data}} }",
                 "field_mapping": "{ \"country\": {% if vars.steps.Get_IP_Reputation.data.attributes.country %}\"{{vars.steps.Get_IP_Reputation.data.attributes.country}}\"{% else %}{{None}}{% endif %}, \"asn\": {% if vars.steps.Get_IP_Reputation.data.attributes.asn %}{{vars.steps.Get_IP_Reputation.data.attributes.asn}}{% else %}{{None}}{% endif %}, \"as_owner\": {% if vars.steps.Get_IP_Reputation.data.attributes.as_owner %}\"{{vars.steps.Get_IP_Reputation.data.attributes.as_owner}}\"{% else %}{{None}}{% endif %}, \"regional_internet_registry\": {% if vars.steps.Get_IP_Reputation.data.attributes.regional_internet_registry %}\"{{vars.steps.Get_IP_Reputation.data.attributes.regional_internet_registry}}\"{% else %}{{None}}{% endif %}, \"last_modification_date\": {% if vars.steps.Get_IP_Reputation.data.attributes.last_modification_date %}{{vars.steps.Get_IP_Reputation.data.attributes.last_modification_date}}{% else %}{{None}}{% endif %} }",
                 "enrichment_summary": "{{vars.steps.Compute_VT_Summary.data['formatted_string']}}"
               },

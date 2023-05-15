@@ -76,7 +76,7 @@ def check_payload(payload):
             nested = check_payload(value)
             if len(nested.keys()) > 0:
                 updated_payload[key] = nested
-        elif value:
+        elif value != '' and value is not None:
             updated_payload[key] = value
     return updated_payload
 
