@@ -804,12 +804,12 @@
         {
           "title": "Limit",
           "name": "limit",
-          "description": "(Optional) Specify the maximum number of results this operation should return, per page, in the response. By default, this is set as 10.",
+          "description": "(Optional) Specify the maximum number of results this operation should return, per page, in the response. By default, this is set as 10 and maximum limit that is set i.e 300.",
           "type": "integer",
           "visible": true,
           "editable": true,
           "required": false,
-          "tooltip": "(Optional) Specify the maximum number of results this operation should return, per page, in the response. By default, this is set as 10.",
+          "tooltip": "(Optional) Specify the maximum number of results this operation should return, per page, in the response. By default, this is set as 10 and maximum limit that is set i.e 300.",
           "value": 10
         },
         {
