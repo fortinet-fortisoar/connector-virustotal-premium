@@ -1,7 +1,7 @@
 {
   "name": "virustotal-premium",
   "label": "VirusTotal Premium",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "VirusTotal Premium Services are used to get more threat context and exposes advanced threat hunting and malware discovery endpoints and functionality. This connector facilitates the automated operations related to analyze retro hunts, search intelligence, livehunt notifications, livehunt rulesets, and download files from VirusTotal.",
   "publisher": "Fortinet",
   "cs_approved": true,
@@ -17,7 +17,7 @@
     "Domain_Enrichment",
     "File_Enrichment"
   ],
-  "help_online": "https://docs.fortinet.com/document/fortisoar/1.1.0/virustotal-premium/581/virustotal-premium-v1-1-0",
+  "help_online": "",
   "configuration": {
     "fields": [
       {
@@ -85,43 +85,43 @@
         },
         {
           "title": "Foreground Color",
-          "tooltip": "Specify the theme primary foreground color in hex notation.",
+          "tooltip": "Specify the theme for foreground color in hex notation.",
           "required": false,
           "editable": true,
           "visible": true,
           "type": "text",
           "name": "fg1",
-          "description": "Specify the theme primary foreground color in hex notation."
+          "description": "Specify the theme for foreground color in hex notation."
         },
         {
           "title": "Primary Background Color",
-          "tooltip": "Specify the theme primary background color in hex notation.",
+          "tooltip": "Specify the theme for primary background color in hex notation.",
           "required": false,
           "editable": true,
           "visible": true,
           "type": "text",
           "name": "bg1",
-          "description": "Specify the theme primary background color in hex notation."
+          "description": "Specify the theme for primary background color in hex notation."
         },
         {
           "title": "Secondary Background Color",
-          "tooltip": "Specify the theme secondary background color in hex notation.",
+          "tooltip": "Specify the theme for secondary background color in hex notation.",
           "required": false,
           "editable": true,
           "visible": true,
           "type": "text",
           "name": "bg2",
-          "description": "Specify the theme secondary background color in hex notation."
+          "description": "Specify the theme for secondary background color in hex notation."
         },
         {
           "title": "Border Color",
-          "tooltip": "Specify the theme border color.",
+          "tooltip": "Specify the theme for border color.",
           "required": false,
           "editable": true,
           "visible": true,
           "type": "text",
           "name": "bd1",
-          "description": "Specify the theme border color."
+          "description": "Specify the theme for border color."
         }
       ]
     },
@@ -1136,12 +1136,12 @@
         {
           "title": "Limit",
           "name": "limit",
-          "description": "(Optional) Specify the maximum number of results this operation should return, per page, in the response. By default, this is set as 10.",
+          "description": "(Optional) Specify the maximum number of results this operation should return, per page, in the response. By default, this is set as 10 and maximum limit that is set i.e 40.",
           "type": "integer",
           "visible": true,
           "editable": true,
           "required": false,
-          "tooltip": "(Optional) Specify the maximum number of results this operation should return, per page, in the response. By default, this is set as 10.",
+          "tooltip": "(Optional) Specify the maximum number of results this operation should return, per page, in the response. By default, this is set as 10 and maximum limit that is set i.e 40.",
           "value": 10
         },
         {
@@ -1383,12 +1383,12 @@
         {
           "title": "Limit",
           "name": "limit",
-          "description": "(Optional) Specify the maximum number of results this operation should return, per page, in the response. By default, this is set as 10.",
+          "description": "(Optional) Specify the maximum number of results this operation should return, per page, in the response. By default, this is set as 10 and maximum limit that is set i.e 40.",
           "type": "integer",
           "visible": true,
           "editable": true,
           "required": false,
-          "tooltip": "(Optional) Specify the maximum number of results this operation should return, per page, in the response. By default, this is set as 10.",
+          "tooltip": "(Optional) Specify the maximum number of results this operation should return, per page, in the response. By default, this is set as 10 and maximum limit that is set i.e 40.",
           "value": 10
         },
         {
@@ -1465,12 +1465,12 @@
         {
           "title": "Limit",
           "name": "limit",
-          "description": "(Optional) Specify the maximum number of results this operation should return, per page, in the response. By default, this is set as 10.",
+          "description": "(Optional) Specify the maximum number of results this operation should return, per page, in the response. By default, this is set as 10 and maximum limit that is set i.e 40.",
           "type": "integer",
           "visible": true,
           "editable": true,
           "required": false,
-          "tooltip": "(Optional) Specify the maximum number of results this operation should return, per page, in the response. By default, this is set as 10.",
+          "tooltip": "(Optional) Specify the maximum number of results this operation should return, per page, in the response. By default, this is set as 10 and maximum limit that is set i.e 40.",
           "value": 10
         },
         {
@@ -1854,7 +1854,7 @@
           "tooltip": "(Optional) Specify the starting DateTime from when you want to create the Retrohunt job in VirusTotal."
         },
         {
-          "title": "End time",
+          "title": "End Time",
           "description": "(Optional) Specify the ending DateTime till when you want to create the Retrohunt job in VirusTotal.",
           "required": false,
           "editable": true,
@@ -1926,12 +1926,12 @@
         {
           "title": "Limit",
           "name": "limit",
-          "description": "(Optional) Specify the maximum number of results this operation should return, per page, in the response. By default, this is set as 10.",
+          "description": "(Optional) Specify the maximum number of results this operation should return, per page, in the response. By default, this is set as 10 and maximum limit that is set i.e 40.",
           "type": "integer",
           "visible": true,
           "editable": true,
           "required": false,
-          "tooltip": "(Optional) Specify the maximum number of results this operation should return, per page, in the response. By default, this is set as 10.",
+          "tooltip": "(Optional) Specify the maximum number of results this operation should return, per page, in the response. By default, this is set as 10 and maximum limit that is set i.e 40.",
           "value": 10
         },
         {

@@ -50,7 +50,7 @@ class VirusTotalPremium(object):
                 if 'json' in str(response.headers):
                     return response.json()
                 else:
-                    return response.text
+                    return response
             elif response.status_code == 404:
                 return response.json()
             else:
@@ -98,13 +98,17 @@ def download_file(config, params):
         response = vtp.make_rest_call(endpoint, 'GET')
         logger.debug("API response: {0}".format(response))
         if response:
-            path = os.path.join(settings.TMP_FILE_ROOT, file_name)
-            logger.debug("Path: {0}".format(path))
-            with open(path, 'wb') as fp:
-                fp.write(response.content)
-            attach_response = upload_file_to_cyops(file_path=file_name, filename=file_name,
-                                                   name=file_name, create_attachment=True)
-            return attach_response
+            try:
+                if response.get('error'):
+                    return response
+            except:
+                path = os.path.join(settings.TMP_FILE_ROOT, file_name)
+                logger.debug("Path: {0}".format(path))
+                with open(path, 'wb') as fp:
+                    fp.write(response.content)
+                attach_response = upload_file_to_cyops(file_path=file_name, filename=file_name,
+                                                       name=file_name, create_attachment=True)
+                return attach_response
     except Exception as err:
         logger.exception("{0}".format(str(err)))
         raise ConnectorError("{0}".format(str(err)))
@@ -167,15 +171,17 @@ def download_zip_file(config, params):
         response = vtp.make_rest_call(endpoint, 'GET')
         logger.debug("API response: {0}".format(response))
         if response:
-            if response.get('error'):
-                return response
-            path = os.path.join(settings.TMP_FILE_ROOT, file_name)
-            logger.debug("Path: {0}".format(path))
-            with open(path, 'wb') as fp:
-                fp.write(response.content)
-            attach_response = upload_file_to_cyops(file_path=file_name, filename=file_name,
-                                                   name=file_name, create_attachment=True)
-            return attach_response
+            try:
+                if response.get('error'):
+                    return response
+            except:
+                path = os.path.join(settings.TMP_FILE_ROOT, file_name)
+                logger.debug("Path: {0}".format(path))
+                with open(path, 'wb') as fp:
+                    fp.write(response.content)
+                attach_response = upload_file_to_cyops(file_path=file_name, filename=file_name,
+                                                       name=file_name, create_attachment=True)
+                return attach_response
     except Exception as err:
         logger.exception("{0}".format(str(err)))
         raise ConnectorError("{0}".format(str(err)))
@@ -226,7 +232,7 @@ def create_livehunt_ruleset(config, params):
                     "enabled": params.get('enabled'),
                     "limit": params.get('limit'),
                     "rules": params.get('rules'),
-                    "notification_email": notifications
+                    "notification_emails": notifications
                 }
             }
         }
@@ -285,7 +291,7 @@ def update_livehunt_ruleset(config, params):
                     "enabled": params.get('enabled'),
                     "limit": params.get('limit'),
                     "rules": params.get('rules'),
-                    "notification_email": notifications
+                    "notification_emails": notifications
                 }
             }
         }
@@ -772,12 +778,18 @@ def get_widget_html_content(config, params):
 def _check_health(config):
     try:
         vtp = VirusTotalPremium(config)
-        endpoint = "users/{0}".format(config.get('api_key'))
-        response = vtp.make_rest_call(endpoint, 'GET')
-        if response:
+        endpoint = vtp.url + "users/{0}".format(config.get('api_key'))
+        headers = {
+            'x-apikey': config.get('api_key'),
+            'Content-Type': 'application/x-www-form-urlencoded, application/json'
+        }
+        response = requests.request(method='GET', url=endpoint, headers=headers, verify=config.get('verify_ssl'))
+        if response.ok:
             return True
+        else:
+            raise ConnectorError("Invalid Credentials!")
     except Exception as err:
-        raise ConnectorError("{0}".format(str(err)))
+        raise ConnectorError("Invalid Credentials!")
 
 
 operations = {
