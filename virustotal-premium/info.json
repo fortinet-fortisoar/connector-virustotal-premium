@@ -804,12 +804,12 @@
         {
           "title": "Limit",
           "name": "limit",
-          "description": "(Optional) Specify the maximum number of results this operation should return, per page, in the response. By default, this is set as 10 and maximum limit that is set i.e 300.",
+          "description": "(Optional) Specify the maximum number of results this operation should return, per page, in the response. By default, this is set as 10 and maximum allowed limit is 300.",
           "type": "integer",
           "visible": true,
           "editable": true,
           "required": false,
-          "tooltip": "(Optional) Specify the maximum number of results this operation should return, per page, in the response. By default, this is set as 10 and maximum limit that is set i.e 300.",
+          "tooltip": "(Optional) Specify the maximum number of results this operation should return, per page, in the response. By default, this is set as 10 and maximum allowed limit is 300.",
           "value": 10
         },
         {
@@ -1136,12 +1136,12 @@
         {
           "title": "Limit",
           "name": "limit",
-          "description": "(Optional) Specify the maximum number of results this operation should return, per page, in the response. By default, this is set as 10 and maximum limit that is set i.e 40.",
+          "description": "(Optional) Specify the maximum number of results this operation should return, per page, in the response. By default, this is set as 10 and maximum allowed limit is 40.",
           "type": "integer",
           "visible": true,
           "editable": true,
           "required": false,
-          "tooltip": "(Optional) Specify the maximum number of results this operation should return, per page, in the response. By default, this is set as 10 and maximum limit that is set i.e 40.",
+          "tooltip": "(Optional) Specify the maximum number of results this operation should return, per page, in the response. By default, this is set as 10 and maximum allowed limit is 40.",
           "value": 10
         },
         {
@@ -1383,12 +1383,12 @@
         {
           "title": "Limit",
           "name": "limit",
-          "description": "(Optional) Specify the maximum number of results this operation should return, per page, in the response. By default, this is set as 10 and maximum limit that is set i.e 40.",
+          "description": "(Optional) Specify the maximum number of results this operation should return, per page, in the response. By default, this is set as 10 and maximum allowed limit is 40.",
           "type": "integer",
           "visible": true,
           "editable": true,
           "required": false,
-          "tooltip": "(Optional) Specify the maximum number of results this operation should return, per page, in the response. By default, this is set as 10 and maximum limit that is set i.e 40.",
+          "tooltip": "(Optional) Specify the maximum number of results this operation should return, per page, in the response. By default, this is set as 10 and maximum allowed limit is 40.",
           "value": 10
         },
         {
@@ -1465,12 +1465,12 @@
         {
           "title": "Limit",
           "name": "limit",
-          "description": "(Optional) Specify the maximum number of results this operation should return, per page, in the response. By default, this is set as 10 and maximum limit that is set i.e 40.",
+          "description": "(Optional) Specify the maximum number of results this operation should return, per page, in the response. By default, this is set as 10 and maximum allowed limit is 40.",
           "type": "integer",
           "visible": true,
           "editable": true,
           "required": false,
-          "tooltip": "(Optional) Specify the maximum number of results this operation should return, per page, in the response. By default, this is set as 10 and maximum limit that is set i.e 40.",
+          "tooltip": "(Optional) Specify the maximum number of results this operation should return, per page, in the response. By default, this is set as 10 and maximum allowed limit is 40.",
           "value": 10
         },
         {
@@ -1749,12 +1749,12 @@
         {
           "title": "Limit",
           "name": "limit",
-          "description": "(Optional) Specify the maximum number of results this operation should return, per page, in the response.",
+          "description": "(Optional) Specify the maximum number of results this operation should return, per page, in the response. By default, this is set as 10 and maximum allowed limit is 40.",
           "type": "integer",
           "visible": true,
           "editable": true,
           "required": false,
-          "tooltip": "(Optional) Specify the maximum number of results this operation should return, per page, in the response."
+          "tooltip": "(Optional) Specify the maximum number of results this operation should return, per page, in the response. By default, this is set as 10 and maximum allowed limit is 40."
         },
         {
           "title": "Cursor",
@@ -1926,12 +1926,12 @@
         {
           "title": "Limit",
           "name": "limit",
-          "description": "(Optional) Specify the maximum number of results this operation should return, per page, in the response. By default, this is set as 10 and maximum limit that is set i.e 40.",
+          "description": "(Optional) Specify the maximum number of results this operation should return, per page, in the response. By default, this is set as 10 and maximum allowed limit is 40.",
           "type": "integer",
           "visible": true,
           "editable": true,
           "required": false,
-          "tooltip": "(Optional) Specify the maximum number of results this operation should return, per page, in the response. By default, this is set as 10 and maximum limit that is set i.e 40.",
+          "tooltip": "(Optional) Specify the maximum number of results this operation should return, per page, in the response. By default, this is set as 10 and maximum allowed limit is 40.",
           "value": 10
         },
         {
