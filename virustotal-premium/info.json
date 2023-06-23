@@ -17,7 +17,7 @@
     "Domain_Enrichment",
     "File_Enrichment"
   ],
-  "help_online": "",
+  "help_online": "https://docs.fortinet.com/document/fortisoar/1.1.1/virustotal-premium/616/virustotal-premium-v1-1-1",
   "configuration": {
     "fields": [
       {
