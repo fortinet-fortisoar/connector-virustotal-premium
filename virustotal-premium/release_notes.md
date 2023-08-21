@@ -1,4 +1,4 @@
-#### What's Fixed
+#### The following enhancements have been made to the VirusTotal Premium Connector in version 1.1.2:
 
-- Updated the "File > VirusTotal Premium > Enrichment" pluggable enrichment playbook to remove the "tlsh", "magic", and "vhash" keys from the "field_mapping" variable defined in the last step of the playbook, i.e., the "Return Output Data" step. This update has been made as the enrichment playbook result contained unsupported characters in some file hashes. 
-- Fixed the issue with "Health Check" would be successful and the connector's status would display as "Available" even when a random URL was passed as the API key. Now the "Health Check" is successful only when a valid API key is specified. 
+- The file enrichment playbook File > VirusTotal Premium > Enrichment optionally uploads the file and compute enrichment summary to VirusTotal Premium.
+- A new configurable option now uploads or skips the file upload to VirusTotal Premium. A global variable virus_total_upload_file when set to true uploads the file to VirusTotal Premium and skips the upload when set to false.

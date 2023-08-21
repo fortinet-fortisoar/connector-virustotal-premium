@@ -1,7 +1,7 @@
 {
   "name": "virustotal-premium",
   "label": "VirusTotal Premium",
-  "version": "1.1.1",
+  "version": "1.1.2",
   "description": "VirusTotal Premium Services are used to get more threat context and exposes advanced threat hunting and malware discovery endpoints and functionality. This connector facilitates the automated operations related to analyze retro hunts, search intelligence, livehunt notifications, livehunt rulesets, and download files from VirusTotal.",
   "publisher": "Fortinet",
   "cs_approved": true,
@@ -17,7 +17,7 @@
     "Domain_Enrichment",
     "File_Enrichment"
   ],
-  "help_online": "https://docs.fortinet.com/document/fortisoar/1.1.1/virustotal-premium/616/virustotal-premium-v1-1-1",
+  "help_online": "",
   "configuration": {
     "fields": [
       {
