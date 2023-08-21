@@ -4844,8 +4844,8 @@
     },
     {
       "name": "virus_total_upload_file",
-      "value": "true",
-      "default_value": "true"
+      "value": "false",
+      "default_value": "false"
     }
   ],
   "exported_tags": [
