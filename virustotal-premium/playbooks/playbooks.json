@@ -3000,7 +3000,7 @@
                   {
                     "option": "Yes",
                     "step_iri": "/api/3/workflow_steps/faeb35b1-d845-4be6-aeb7-93a0b019a59e",
-                    "condition": "{{ vars.steps.Get_File_Reputation.status == \"Success\" or vars.useMockOutput }}",
+                    "condition": "{{ (not vars.steps.Get_File_Reputation.data.error is defined and vars.steps.Get_File_Reputation.status == \"Success\" and not vars.steps.Get_File_Reputation.data.code is defined) or vars.useMockOutput }}",
                     "step_name": "Compute Enrichment Summary"
                   },
                   {
