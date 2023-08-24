@@ -293,7 +293,7 @@
               "name": "Configuration",
               "description": null,
               "arguments": {
-                "useMockOutput": "{{globalVars.Demo_mode}}",
+                "useMockOutput": "{{globalVars.Demo_mode or false}}",
                 "indicator_value": "{{vars.input.params['indicator_value']}}"
               },
               "status": null,
@@ -1168,7 +1168,7 @@
               "name": "Configuration",
               "description": null,
               "arguments": {
-                "useMockOutput": "{{globalVars.Demo_mode}}",
+                "useMockOutput": "{{globalVars.Demo_mode or false}}",
                 "indicator_value": "{{vars.input.params['indicator_value']}}"
               },
               "status": null,
@@ -1327,7 +1327,7 @@
               "description": null,
               "arguments": {
                 "tags": "{}",
-                "useMockOutput": "{{globalVars.Demo_mode}}",
+                "useMockOutput": "{{globalVars.Demo_mode or false}}",
                 "indicator_value": "{{vars.input.params['indicator_value']}}"
               },
               "status": null,
@@ -2952,7 +2952,7 @@
               "name": "Configuration",
               "description": null,
               "arguments": {
-                "useMockOutput": "{{globalVars.Demo_mode}}",
+                "useMockOutput": "{{globalVars.Demo_mode or false}}",
                 "indicator_file_IRI": "{{vars.input.params['indicator_value']['indicator_file_IRI']}}",
                 "indicator_file_name": "{{vars.input.params['indicator_value']['indicator_file_name']}}",
                 "virus_total_premium_upload_file": "{{globalVars.virus_total_premium_upload_file or false}}"
@@ -3394,7 +3394,7 @@
               "name": "Configuration",
               "description": null,
               "arguments": {
-                "useMockOutput": "{{globalVars.Demo_mode}}",
+                "useMockOutput": "{{globalVars.Demo_mode or false}}",
                 "indicator_value": "{{vars.input.params['indicator_value']}}"
               },
               "status": null,
